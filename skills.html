@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Skills — Nakshatra Jain</title>
+<meta name="description" content="Tech stack of Nakshatra Jain — Java, Spring Boot, React, PostgreSQL, Docker, AWS, OCI. Backend and cloud engineer with 6+ certifications and 40+ production-used tools."/>
+<meta name="keywords" content="Nakshatra Jain skills, Java Spring Boot, React PostgreSQL, Docker AWS OCI, backend engineer, cloud developer"/>
+<meta name="author" content="Nakshatra Jain"/>
+<meta property="og:title" content="Skills — Nakshatra Jain"/>
+<meta property="og:description" content="Java · Spring Boot · React · PostgreSQL · Docker · AWS · OCI. 6+ certs, 40+ tools, production-grade backend and cloud engineer."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://nakshatrajain.dev/skills.html"/>
+<meta property="og:image" content="https://nakshatrajain.dev/assets/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Skills — Nakshatra Jain"/>
+<meta name="twitter:description" content="Java · Spring Boot · React · Docker · AWS · OCI. Backend & cloud engineer open to Summer 2026 internships."/>
+<meta name="twitter:image" content="https://nakshatrajain.dev/assets/og-image.png"/>
+<link rel="stylesheet" href="css/global.css"/>
+<style>
+
+/* ── SKILL BAR SECTION ── */
+/* .sk-section { border-bottom: 1px solid var(--line2); }
+.sk-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 3.5rem 2.5rem;
+}
+.sk-heading {
+  font-family: var(--display); font-size: 1.1rem; letter-spacing: .08em;
+  color: var(--text); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.sk-heading::after {
+  content: ''; flex: 1; height: 1px; background: var(--line2);
+} */
+
+/* individual skill row */
+/* .sr { display: flex; flex-direction: column; gap: 0; }
+.sr-row {
+  display: grid; grid-template-columns: 165px 1fr 52px;
+  align-items: center; gap: 1.25rem;
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: border-color .2s, background .2s;
+  cursor: default;
+}
+.sr-row:last-child { border-bottom: none; }
+.sr-row:hover { border-bottom-color: rgba(57,255,20,.15); }
+
+.sr-name {
+  font-family: var(--mono); font-size: .58rem;
+  color: var(--text2); letter-spacing: .06em;
+}
+.sr-bar-wrap {
+  height: 2px; background: var(--surface2); overflow: hidden;
+  position: relative;
+}
+.sr-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), rgba(57,255,20,.4));
+  box-shadow: 0 0 8px var(--green-glow);
+  width: 0;
+  transition: width 1.3s cubic-bezier(.16,1,.3,1);
+}
+.sr-fill.animate { width: var(--pct); }
+.sr-pct {
+  font-family: var(--mono); font-size: .46rem;
+  color: var(--text2); text-align: right; letter-spacing: .06em;
+} */
+
+/* ── SKILL TILES SECTION ── */
+/* .sk4-section { border-bottom: 1px solid var(--line2); padding: 3.5rem 0; }
+.sk4-inner { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+.sk4-group { margin-bottom: 2.5rem; }
+.sk4-group:last-child { margin-bottom: 0; }
+.sk4-heading {
+  font-family: var(--display); font-size: 1.1rem; letter-spacing: .08em;
+  color: var(--text); margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.sk4-heading::after { content: ''; flex: 1; height: 1px; background: var(--line2); }
+.sk4-tiles {
+  display: flex; flex-wrap: wrap; gap: 1px;
+  background: var(--line2);
+  border: 1px solid var(--line2);
+}
+.sk4-tile {
+  background: var(--bg);
+  padding: .9rem 1.15rem;
+  min-width: 130px; flex: 1;
+  display: flex; flex-direction: column; gap: .35rem;
+  cursor: default; transition: background .2s;
+  position: relative; overflow: hidden;
+}
+.sk4-tile::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 1px;
+  background: var(--green); transform: scaleX(0);
+  transform-origin: left; transition: transform .3s;
+}
+.sk4-tile:hover { background: var(--bg2); }
+.sk4-tile:hover::after { transform: scaleX(1); }
+.sk4-tile.core { background: rgba(57,255,20,.025); }
+.sk4-tile.core:hover { background: rgba(57,255,20,.05); }
+.sk4-tile-name {
+  font-family: var(--mono); font-size: .62rem;
+  color: var(--text); letter-spacing: .04em;
+}
+.sk4-tile-cat {
+  font-family: var(--mono); font-size: .42rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--text3); opacity: .6;
+}
+.sk4-tile.core .sk4-tile-name { color: var(--green); }
+.sk4-tile.core .sk4-tile-cat { color: var(--green); opacity: .55; }
+
+@media (max-width: 640px) {
+  .sk4-tile { min-width: 100px; }
+} */
+
+/* ── SKILL SPLIT SECTION ── */
+.sk-split { border-bottom: 1px solid var(--line2); }
+.sk-split-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 180px 1fr;
+  border-left: 1px solid var(--line2);
+}
+.sk-split-nav {
+  border-right: 1px solid var(--line2);
+  padding: 2rem 0;
+  position: sticky; top: 48px;
+  align-self: start;
+}
+.sk-split-nav-item {
+  display: flex; align-items: center; gap: .65rem;
+  padding: .65rem 1.25rem;
+  font-family: var(--mono); font-size: .52rem;
+  color: var(--text3); letter-spacing: .08em;
+  cursor: default; transition: all .18s;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+}
+.sk-split-nav-item:hover { color: var(--text2); border-left-color: var(--line2); }
+.sk-split-nav-item.active { color: var(--green); border-left-color: var(--green); background: rgba(57,255,20,.03); }
+.sk-split-nav-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.sk-split-content { padding: 2.5rem 2rem; }
+.sk-split-group {
+  margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line2);
+}
+.sk-split-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.sk-split-group-title {
+  font-family: var(--display); font-size: 1.1rem;
+  color: var(--text); letter-spacing: .08em;
+  margin-bottom: 1rem;
+}
+/* .sk-split-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .85rem; }
+.sk-split-chip {
+  font-family: var(--mono); font-size: .52rem;
+  letter-spacing: .05em;
+  padding: .35rem .75rem;
+  border: 1px solid var(--line2);
+  background: var(--surface);
+  color: var(--text2);
+  transition: all .18s; cursor: default;
+}
+.sk-split-chip:hover { border-color: rgba(57,255,20,.3); color: var(--green); background: var(--green-dim); }
+.sk-split-chip.core {
+  border-color: rgba(57,255,20,.25);
+  color: var(--green); background: var(--green-dim);
+} */
+.sk-split-count {
+  font-family: var(--mono); font-size: .46rem;
+  color: var(--text3); letter-spacing: .1em; opacity: .6;
+}
+
+/* skill level rows */
+.sk-level-rows { display: flex; flex-direction: column; gap: 0; }
+.sk-level-row {
+  display: grid; grid-template-columns: 175px 95px 1fr;
+  align-items: center; gap: 1rem;
+  padding: .65rem .5rem;
+  border-bottom: 1px solid var(--line);
+  transition: all .18s; cursor: default;
+}
+.sk-level-row:last-child { border-bottom: none; }
+.sk-level-row:hover { background: var(--bg2); padding-left: .85rem; }
+.sk-level-name {
+  font-family: var(--mono); font-size: .6rem;
+  color: var(--text); letter-spacing: .04em;
+}
+.sk-level-tag {
+  font-family: var(--mono); font-size: .4rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: .16rem .45rem; border: 1px solid transparent;
+  text-align: center; white-space: nowrap;
+}
+.sk-level-tag.expert {
+  color: var(--green); border-color: rgba(57,255,20,.3);
+  background: var(--green-dim);
+}
+.sk-level-tag.proficient {
+  color: var(--text2); border-color: var(--line2);
+  background: var(--surface);
+}
+.sk-level-tag.familiar {
+  color: var(--text3); border-color: var(--line);
+  background: transparent; opacity: .7;
+}
+.sk-level-note {
+  font-family: var(--mono); font-size: .46rem;
+  color: var(--text3); letter-spacing: .04em; opacity: .7;
+}
+.sk-level-row:hover .sk-level-note { opacity: 1; color: var(--text2); }
+
+@media (max-width: 768px) {
+  .sk-level-row { grid-template-columns: 1fr 80px; }
+  .sk-level-note { display: none; }
+  .sk-level-row { padding: .65rem .25rem; }
+}
+
+@media (max-width: 960px) {
+  .sk-split-inner { grid-template-columns: 1fr; border-left: none; }
+  .sk-split-nav { display: none; }
+  .sk-split-content { padding: 1.5rem 1rem; }
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .learning-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .stat-row-inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── CATEGORY CHIP GRID ── */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line2);
+}
+.cat-cell {
+  background: var(--bg);
+  padding: 1.85rem;
+  transition: background .2s;
+  cursor: default;
+  position: relative; overflow: hidden;
+}
+.cat-cell::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: var(--green);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s cubic-bezier(.16,1,.3,1);
+}
+.cat-cell:hover::before { transform: scaleX(1); }
+.cat-cell:hover { background: var(--bg2); }
+
+.cat-label {
+  font-family: var(--mono); font-size: .46rem;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green); opacity: .7;
+  margin-bottom: .9rem;
+  display: flex; align-items: center; gap: .45rem;
+}
+.cat-chips { display: flex; flex-wrap: wrap; gap: .32rem; }
+.cat-glyph {
+  position: absolute; bottom: .85rem; right: 1.1rem;
+  font-family: var(--display); font-size: 2.5rem;
+  color: var(--text2); opacity: .18;
+  font-weight: 900;
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── CURRENTLY LEARNING STRIP ── */
+.learning-strip {
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+  background: var(--bg2);
+}
+.learning-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 2.5rem 2.5rem;
+  display: grid; grid-template-columns: 180px 1fr; gap: 3.5rem;
+  align-items: start;
+}
+.learning-key {
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--text); opacity: 1;
+  padding-top: .2rem;
+}
+.learning-list { display: flex; flex-direction: column; gap: 0; }
+.learning-item {
+  display: flex; align-items: center; gap: .85rem;
+  padding: .75rem 0; border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: .64rem;
+  letter-spacing: .04em; color: var(--text2);
+  transition: color .18s; cursor: default;
+}
+.learning-item:last-child { border-bottom: none; }
+.learning-item:hover { color: var(--text); }
+.li-tag {
+  font-family: var(--mono); font-size: .5rem; letter-spacing: .12em;
+  color: var(--green); opacity: .85; min-width: 80px;
+}
+/* .li-bar {
+  margin-left: auto; display: flex; align-items: center; gap: .5rem;
+}
+.li-progress {
+  width: 60px; height: 2px;
+  background: var(--surface2); overflow: hidden;
+}
+.li-prog-fill {
+  height: 100%; background: var(--green);
+  box-shadow: 0 0 4px var(--green-glow);
+}
+.li-pct-txt {
+  font-family: var(--mono); font-size: .42rem;
+  color: var(--text2); letter-spacing: .06em;
+} */
+
+/* ── STAT ROW ── */
+.stat-strip {
+  border-bottom: 1px solid var(--line2);
+}
+.stat-row-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-left: 1px solid var(--line2);
+}
+.stat-col {
+  padding: 1.75rem 1.5rem; border-right: 1px solid var(--line2);
+  cursor: default; transition: background .2s;
+  position: relative;
+}
+.stat-col::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  height: 2px; background: var(--green);
+  width: 0; transition: width .35s; opacity: .5;
+}
+.stat-col:hover { background: var(--bg2); }
+.stat-col:hover::after { width: 100%; }
+.sc-val {
+  font-family: var(--display); font-size: 2rem;
+  color: var(--text); display: block;
+  line-height: 1; margin-bottom: .3rem;
+}
+.sc-unit {
+  font-family: var(--mono); font-size: .65rem;
+  color: var(--green); margin-left: .1rem;
+}
+.sc-lbl {
+  font-family: var(--mono); font-size: .54rem;
+  letter-spacing: .12em; color: var(--text);
+  text-transform: uppercase;
+}
+.sc-sub {
+  font-family: var(--mono); font-size: .5rem;
+  color: var(--text2); opacity: 1; margin-top: .12rem;
+}
+
+@media (max-width: 960px) {
+  .sk-split-inner { grid-template-columns: 1fr; border-left: none; }
+  .sk-split-nav { display: none; }
+  .sk-split-content { padding: 1.5rem 1rem; }
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .learning-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .stat-row-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .stat-row-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="grid-bg"></div>
+<!-- CURSOR -->
+<div id="cur"><div id="cur-dot"></div></div>
+<div id="cur-ring"></div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- COMMAND PALETTE -->
+<div id="cmd-overlay">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <span class="cmd-input-icon">⌕</span>
+      <input id="cmd-input" class="cmd-input"
+             placeholder="Search pages, copy email, open links..."
+             autocomplete="off"/>
+      <span class="cmd-esc">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results"></div>
+    <div class="cmd-footer">
+      <div class="cmd-footer-hint"><span class="cmd-key">↑↓</span> navigate</div>
+      <div class="cmd-footer-hint"><span class="cmd-key">↵</span> select</div>
+      <div class="cmd-footer-hint"><span class="cmd-key">ESC</span> close</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <a href="index.html" class="tn-logo">
+    <span class="tn-logo-dot"></span>NAKSHATRA JAIN
+  </a>
+  <div class="tn-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+  </div>
+  <div class="tn-right">
+    <div class="tn-status"><span class="tn-dot"></span>Open · Summer 2026</div>
+    <button class="tn-cmd-btn" data-cmd-open>⌕ <span class="tn-cmd-key">⌘K</span></button>
+    <a href="contact.html" class="tn-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- FLOATING NAV PILL -->
+<nav class="nav-pill">
+  <a href="index.html" data-label="Home">⌂</a>
+  <div class="nav-pill-sep"></div>
+  <a href="projects.html" data-label="Projects">◫</a>
+  <div class="nav-pill-sep"></div>
+  <a href="experience.html" data-label="Experience">◷</a>
+  <div class="nav-pill-sep"></div>
+  <a href="skills.html" data-label="Skills" class="active">◈</a>
+  <div class="nav-pill-sep"></div>
+  <a href="contact.html" data-label="Contact">✉</a>
+  <div class="nav-pill-sep"></div>
+  <a href="resume.html" data-label="Resume">⊡</a>
+</nav>
+
+<main style="padding-top:48px">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div>
+        <div class="ph-breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="ph-breadcrumb-sep">/</span>
+          Skills
+        </div>
+        <div class="ph-title">Tech <em>Stack</em></div>
+      </div>
+      <!-- <div class="ph-count">40+ TOOLS · PRODUCTION-USED</div> -->
+    </div>
+  </div>
+
+  <!-- ═ STAT STRIP ═ -->
+  <div class="stat-strip">
+    <div class="stat-row-inner">
+      <div class="stat-col">
+        <span class="sc-val"><span data-count="6">0</span><span class="sc-unit">+</span></span>
+        <div class="sc-lbl">Certifications</div>
+        <div class="sc-sub">Oracle · AWS · Microsoft · Google</div>
+      </div>
+      <div class="stat-col">
+        <span class="sc-val"><span data-count="40">0</span><span class="sc-unit">+</span></span>
+        <div class="sc-lbl">Tools & Libraries</div>
+        <div class="sc-sub">Production-used</div>
+      </div>
+      <div class="stat-col">
+        <span class="sc-val"><span data-count="3">0</span><span class="sc-unit"></span></span>
+        <div class="sc-lbl">Cloud Platforms</div>
+        <div class="sc-sub">AWS · OCI · Azure</div>
+      </div>
+      <div class="stat-col">
+        <span class="sc-val"><span data-count="2">0</span><span class="sc-unit">+</span></span>
+        <div class="sc-lbl">Years Coding</div>
+        <div class="sc-sub">Java · JS · Python</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═ SKILL SPLIT ═ -->
+<div class="sk-split">
+  <div class="sk-split-inner">
+
+    <div class="sk-split-nav">
+      <div class="sk-split-nav-item active" data-nav="0"><div class="sk-split-nav-dot"></div>Backend</div>
+      <div class="sk-split-nav-item" data-nav="1"><div class="sk-split-nav-dot"></div>Frontend</div>
+      <div class="sk-split-nav-item" data-nav="2"><div class="sk-split-nav-dot"></div>Cloud & DevOps</div>
+      <div class="sk-split-nav-item" data-nav="3"><div class="sk-split-nav-dot"></div>Languages</div>
+    </div>
+
+
+    <div class="sk-split-content">
+
+      <div class="sk-split-group reveal">
+        <div class="sk-split-group-title">Backend & Core</div>
+        <div class="sk-level-rows">
+          <div class="sk-level-row"><span class="sk-level-name">Java</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">Primary language · 2+ yrs production use</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Spring Boot</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">Microservices, REST APIs, full auth flows</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Spring Security / JWT</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">RBAC, stateless auth, token refresh</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">PostgreSQL</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Query optimization, indexing, 60% latency cut</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Microservices</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Eureka, API Gateway, service mesh patterns</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">REST API Design</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">RESTful conventions, versioning, error handling</span></div>
+        </div>
+      </div>
+
+      <div class="sk-split-group reveal d1">
+        <div class="sk-split-group-title">Frontend</div>
+        <div class="sk-level-rows">
+          <div class="sk-level-row"><span class="sk-level-name">React.js</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Hooks, Context API, code splitting</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">JavaScript ES6+</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Async/await, modules, modern patterns</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">HTML5 / CSS3</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">Semantic markup, responsive, animations</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Tailwind CSS</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Utility-first, custom config, dark mode</span></div>
+        </div>
+      </div>
+
+      <div class="sk-split-group reveal d2">
+        <div class="sk-split-group-title">Cloud & DevOps</div>
+        <div class="sk-level-rows">
+          <div class="sk-level-row"><span class="sk-level-name">Docker</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Multi-service compose, CI/CD integration</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">AWS / OCI</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">EC2, RDS, S3, OCI Compute · 4 certs</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">GitHub Actions</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Zero-downtime deploys, automated pipelines</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Kubernetes</span><span class="sk-level-tag familiar">Learning</span><span class="sk-level-note">Deployments, services, scaling — in progress</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Linux / Bash</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Shell scripting, server admin, cron jobs</span></div>
+        </div>
+      </div>
+
+      <div class="sk-split-group reveal d3">
+        <div class="sk-split-group-title">Languages</div>
+        <div class="sk-level-rows">
+          <div class="sk-level-row"><span class="sk-level-name">Java</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">OOP, concurrency, streams, generics</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">JavaScript</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">ES2023, async patterns, DOM manipulation</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Python</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">GenAI pipelines, scripting, LangChain</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">SQL</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Complex joins, window functions, query plans</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Bash</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Automation scripts, CI pipelines, cron</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- ═ CATEGORY CHIP GRID ═ -->
+  <div class="cat-grid">
+
+    <div class="cat-cell reveal">
+      <div class="cat-label">>_ Backend</div>
+      <div class="cat-chips">
+        <span class="chip green">Spring Boot</span>
+        <span class="chip green">Spring Security</span>
+        <span class="chip green">JWT Auth</span>
+        <span class="chip">JPA / Hibernate</span>
+        <span class="chip">REST API</span>
+        <span class="chip">WebSocket</span>
+        <span class="chip">Microservices</span>
+        <span class="chip">Eureka</span>
+        <span class="chip">API Gateway</span>
+        <span class="chip">Maven</span>
+        <span class="chip">JUnit 5</span>
+        <span class="chip">Mockito</span>
+      </div>
+      <div class="cat-glyph">BE</div>
+    </div>
+
+    <div class="cat-cell reveal d1">
+      <div class="cat-label">>_ Frontend</div>
+      <div class="cat-chips">
+        <span class="chip green">React.js</span>
+        <span class="chip green">Vite</span>
+        <span class="chip green">Tailwind CSS</span>
+        <span class="chip">Framer Motion</span>
+        <span class="chip">JavaScript ES6+</span>
+        <span class="chip">HTML5 / CSS3</span>
+        <span class="chip">Axios</span>
+        <span class="chip">React Router</span>
+        <span class="chip">Context API</span>
+        <span class="chip">TypeScript</span>
+      </div>
+      <div class="cat-glyph">FE</div>
+    </div>
+
+    <div class="cat-cell reveal d2">
+      <div class="cat-label">>_ Database</div>
+      <div class="cat-chips">
+        <span class="chip green">PostgreSQL</span>
+        <span class="chip green">Firebase</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Redis</span>
+        <span class="chip">ChromaDB</span>
+        <span class="chip">Query Optimization</span>
+        <span class="chip">Indexing</span>
+        <span class="chip">Schema Design</span>
+        <span class="chip">JDBC</span>
+      </div>
+      <div class="cat-glyph">DB</div>
+    </div>
+
+    <div class="cat-cell reveal">
+      <div class="cat-label">>_ Cloud & DevOps</div>
+      <div class="cat-chips">
+        <span class="chip green">AWS</span>
+        <span class="chip green">OCI</span>
+        <span class="chip green">Docker</span>
+        <span class="chip green">GitHub Actions</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Vercel</span>
+        <span class="chip">Render</span>
+        <span class="chip">Firebase Hosting</span>
+        <span class="chip">Nginx</span>
+        <span class="chip">Linux / Bash</span>
+        <span class="chip">Azure</span>
+      </div>
+      <div class="cat-glyph">CD</div>
+    </div>
+
+    <div class="cat-cell reveal d1">
+      <div class="cat-label">>_ Languages</div>
+      <div class="cat-chips">
+        <span class="chip green">Java</span>
+        <span class="chip green">JavaScript</span>
+        <span class="chip green">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">HTML / CSS</span>
+        <span class="chip">Bash</span>
+        <span class="chip">TypeScript</span>
+      </div>
+      <div class="cat-glyph">LG</div>
+    </div>
+
+    <div class="cat-cell reveal d2">
+      <div class="cat-label">>_ Tools & AI</div>
+      <div class="cat-chips">
+        <span class="chip green">VS Code</span>
+        <span class="chip green">GitHub</span>
+        <span class="chip green">Postman</span>
+        <span class="chip">IntelliJ IDEA</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">ChromaDB</span>
+        <span class="chip">Groq API</span>
+        <span class="chip">Streamlit</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Notion</span>
+      </div>
+      <div class="cat-glyph">AI</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="f-logo">NAKSHATRA<span> JAIN</span></div>
+      <ul class="f-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+      <div class="f-right">
+        <span id="footer-time" class="f-time"></span>
+        <span class="f-copy">© 2026 Nakshatra Jain · Portfolio v8</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+<!-- <script>
+  /* ── Animate skill bars on scroll ── */
+  const fills = document.querySelectorAll('.sr-fill');
+  const bObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('animate');
+    });
+  }, { threshold: 0.3 });
+  fills.forEach(f => bObs.observe(f));
+</script> -->
+<script>
+  const skNavItems = document.querySelectorAll('.sk-split-nav-item');
+  const skGroups   = document.querySelectorAll('.sk-split-group');
+
+  const skObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const idx = Array.from(skGroups).indexOf(entry.target);
+      skNavItems.forEach(n => n.classList.remove('active'));
+      const target = document.querySelector(`.sk-split-nav-item[data-nav="${idx}"]`);
+      if (target) target.classList.add('active');
+    });
+  }, { threshold: 0.5, rootMargin: '-60px 0px -35% 0px' });
+
+  skGroups.forEach(g => skObs.observe(g));
+</script>
+
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <span class="bb-clock" id="bb-clock">--:--:-- IST</span>
+  <span class="bb-sep">|</span>
+  <span class="bb-loc">India</span>
+  <span class="bb-sep">|</span>
+  <div class="bb-status">
+    <span class="bb-status-dot"></span>
+    Open · Summer 2026
+  </div>
+  <span class="bb-right">© 2026 Nakshatra Jain · v8</span>
+</div>
+
+</body>
+</html>

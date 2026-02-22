@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Projects — Nakshatra Jain</title>
+<meta name="description" content="Projects by Nakshatra Jain — Nexora, NeuralNest, Cold Email Generator. Full-stack and cloud-native projects built with Spring Boot, React, Docker and AWS."/>
+<meta name="keywords" content="Nakshatra Jain projects, Nexora, NeuralNest, Spring Boot, React, PostgreSQL, Docker, OCI, LangChain"/>
+<meta name="author" content="Nakshatra Jain"/>
+<meta property="og:title" content="Projects — Nakshatra Jain"/>
+<meta property="og:description" content="Nexora · NeuralNest · Cold Email Generator. Production-grade full-stack projects by Nakshatra Jain."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://nakshatrajain.dev/projects.html"/>
+<meta property="og:image" content="https://nakshatrajain.dev/assets/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Projects — Nakshatra Jain"/>
+<meta name="twitter:description" content="Nexora · NeuralNest · Cold Email Generator. Full-stack projects by Nakshatra Jain."/>
+<meta name="twitter:image" content="https://nakshatrajain.dev/assets/og-image.png"/>
+<link rel="stylesheet" href="css/global.css"/>
+<style>
+.proj-list { display: flex; flex-direction: column; }
+
+.prow {
+  display: grid; grid-template-columns: 56px 1fr 130px;
+  border-bottom: 1px solid var(--line2);
+  transition: background .2s; cursor: default;
+  position: relative; overflow: hidden;
+}
+.prow:last-child { border-bottom: none; }
+.prow::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+  background: var(--green);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .38s cubic-bezier(.16,1,.3,1);
+}
+.prow:hover::before { transform: scaleY(1); }
+.prow:hover { background: var(--bg2); }
+
+.prow-num {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 2.25rem .5rem 0;
+  font-family: var(--mono); font-size: 1.5rem;
+  color: var(--text2); letter-spacing: .1em;
+  border-right: 1px solid var(--line2); opacity: .9;
+}
+.prow-body { padding: 2.25rem 2rem 2rem; }
+.prow-meta {
+  display: flex; align-items: center; gap: .65rem;
+  margin-bottom: .7rem; flex-wrap: wrap;
+}
+.prow-type {
+  font-family: var(--mono); font-size: .42rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--text3);
+  border: 1px solid var(--line2); padding: .14rem .48rem;
+  background: var(--surface);
+}
+.prow-period {
+  font-family: var(--mono); font-size: .65rem;
+  color: var(--text2); opacity: .9; letter-spacing: .06em;
+}
+.prow-name {
+  font-family: var(--display); font-size: 1.65rem;
+  color: var(--text); margin-bottom: .25rem;
+  letter-spacing: .03em; line-height: 1.05;
+  transition: color .2s;
+}
+.prow:hover .prow-name { color: var(--green); }
+.prow-sub {
+  font-family: var(--mono); font-size: .58rem;
+  color: var(--text2); letter-spacing: .05em;
+  margin-bottom: 1.1rem; opacity: .9;
+}
+.prow-bullets { list-style: none; display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+.prow-bullets li {
+  font-family: var(--body); font-size: .85rem; font-weight: 300;
+  color: var(--text2); line-height: 1.7;
+  padding-left: 1rem; position: relative;
+}
+.prow-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--text3); font-size: .7rem; }
+.prow-bullets li strong { color: var(--text); font-weight: 500; }
+.prow-metrics {
+  display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: .9rem;
+}
+.pm { font-family: var(--mono); font-size: .54rem; color: var(--text3); }
+.pm strong { color: var(--green); font-weight: 600; }
+.prow-chips { display: flex; flex-wrap: wrap; gap: .32rem; }
+
+.prow-side {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 2.25rem 1.25rem 2rem;
+  border-left: 1px solid var(--line2);
+  gap: 1rem;
+}
+.prow-links { display: flex; flex-direction: column; gap: .75rem; align-items: center; }
+.prow-link {
+  font-family: var(--mono); font-size: .56rem; letter-spacing: .1em;
+  color: var(--text2); text-decoration: none;
+  display: flex; align-items: center; gap: .4rem;
+  transition: color .2s; white-space: nowrap;
+  padding: .35rem .6rem;
+  border: 1px solid var(--line2);
+  transition: all .2s;
+}
+.prow-link:hover { color: var(--green); border-color: rgba(57,255,20,.3); background: rgba(57,255,20,.03); }
+.prow-glyph {
+  font-family: var(--display); font-size: 3.5rem;
+  color: var(--text3); opacity: .15;
+  font-weight: 900;
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.archive-label {
+  padding: 1rem 2rem; border-bottom: 1px solid var(--line2);
+  background: var(--bg2);
+  font-family: var(--mono); font-size: .54rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--text2); opacity: .85;
+  display: flex; align-items: center; gap: .5rem;
+}
+.archive-label::before { content: '>_'; color: var(--green); opacity: .5; }
+
+@media (max-width: 768px) {
+  .prow { grid-template-columns: 36px 1fr; }
+  .prow-side { display: none; }
+  .prow-body { padding: 1.5rem 1.25rem; }
+  .prow-num { padding: 1.5rem .25rem 0; font-size: 1rem; }
+}
+
+@media (max-width: 400px) {
+  .prow { grid-template-columns: 28px 1fr; }
+  .prow-num { font-size: .75rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="grid-bg"></div>
+<div id="cur"><div id="cur-dot"></div></div>
+<div id="cur-ring"></div>
+<div id="progress-bar"></div>
+
+<div id="cmd-overlay">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <span class="cmd-input-icon">⌕</span>
+      <input id="cmd-input" class="cmd-input" placeholder="Search pages, copy email, open links..." autocomplete="off"/>
+      <span class="cmd-esc">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results"></div>
+    <div class="cmd-footer">
+      <div class="cmd-footer-hint"><span class="cmd-key">↑↓</span> navigate</div>
+      <div class="cmd-footer-hint"><span class="cmd-key">↵</span> select</div>
+      <div class="cmd-footer-hint"><span class="cmd-key">ESC</span> close</div>
+    </div>
+  </div>
+</div>
+
+<nav class="topnav">
+  <a href="index.html" class="tn-logo">
+    <span class="tn-logo-dot"></span>NAKSHATRA JAIN
+  </a>
+  <div class="tn-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+  </div>
+  <div class="tn-right">
+    <div class="tn-status"><span class="tn-dot"></span>Open · Summer 2026</div>
+    <button class="tn-cmd-btn" data-cmd-open>⌕ <span class="tn-cmd-key">⌘K</span></button>
+    <a href="contact.html" class="tn-hire">Hire Me</a>
+  </div>
+</nav>
+
+<nav class="nav-pill">
+  <a href="index.html" data-label="Home">⌂</a>
+  <div class="nav-pill-sep"></div>
+  <a href="projects.html" data-label="Projects" class="active">◫</a>
+  <div class="nav-pill-sep"></div>
+  <a href="experience.html" data-label="Experience">◷</a>
+  <div class="nav-pill-sep"></div>
+  <a href="skills.html" data-label="Skills">◈</a>
+  <div class="nav-pill-sep"></div>
+  <a href="contact.html" data-label="Contact">✉</a>
+  <div class="nav-pill-sep"></div>
+  <a href="resume.html" data-label="Resume">⊡</a>
+</nav>
+
+<main style="padding-top:48px">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div>
+        <div class="ph-breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="ph-breadcrumb-sep">/</span>
+          Projects
+        </div>
+        <div class="ph-title">Deployed <em>Systems</em></div>
+      </div>
+      <div class="ph-count">3 PROJECTS · PRODUCTION-GRADE</div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" style="border-top:none">
+    <div class="ticker-label">&gt;_ Stack</div>
+    <div style="overflow:hidden;flex:1">
+      <div class="ticker-track">
+        <span class="ticker-item">Spring Boot</span>
+        <span class="ticker-item">React.js</span>
+        <span class="ticker-item">PostgreSQL</span>
+        <span class="ticker-item">Docker</span>
+        <span class="ticker-item">JWT Auth</span>
+        <span class="ticker-item">Microservices</span>
+        <span class="ticker-item">GitHub Actions</span>
+        <span class="ticker-item">OCI</span>
+        <span class="ticker-item">LangChain</span>
+        <span class="ticker-item">Kubernetes</span>
+        <span class="ticker-item">Spring Boot</span>
+        <span class="ticker-item">React.js</span>
+        <span class="ticker-item">PostgreSQL</span>
+        <span class="ticker-item">Docker</span>
+        <span class="ticker-item">JWT Auth</span>
+        <span class="ticker-item">Microservices</span>
+        <span class="ticker-item">GitHub Actions</span>
+        <span class="ticker-item">OCI</span>
+        <span class="ticker-item">LangChain</span>
+        <span class="ticker-item">Kubernetes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-list">
+
+    <!-- PROJECT 01 — Nexora -->
+    <div class="prow reveal d1">
+      <div class="prow-num">01</div>
+      <div class="prow-body">
+        <div class="prow-meta">
+          <span class="badge live"><span class="badge-dot"></span>Live</span>
+          <span class="prow-type">Full-Stack · Microservices</span>
+          <span class="prow-period">Dec 2025 – Present</span>
+        </div>
+        <div class="prow-name">Nexora</div>
+        <div class="prow-sub">Project Management Platform · Spring Boot · React · PostgreSQL · Firebase Auth · Docker · Render</div>
+        <ul class="prow-bullets">
+          <li>Built a full-stack project management platform with <strong>Spring Boot</strong> backend and <strong>React + Vite</strong> frontend; structured across 5 normalized entities (Users, Projects, Tasks, ProjectMembers) with layered repository-service-controller architecture.</li>
+          <li>Modeled relational data across <strong>5 entities</strong> using <strong>JPA/Hibernate ORM</strong> on PostgreSQL; debugged and fixed bidirectional <strong>@OneToMany</strong> serialization loops and lazy-fetch N+1 issues in production.</li>
+          <li>Implemented <strong>Firebase Auth + Spring Security JWT</strong> for stateless authentication; enforced <strong>RBAC</strong> across 3 permission tiers (OWNER / ADMIN / MEMBER) securing 15+ REST API endpoints.</li>
+          <li>Dockerized frontend and backend independently; deployed to <strong>Render</strong> with GitHub push-triggered auto-deploy achieving <strong>zero manual deploys</strong> across all iterations.</li>
+        </ul>
+        <div class="prow-chips">
+          <span class="chip green">Spring Boot</span>
+          <span class="chip green">React.js</span>
+          <span class="chip green">PostgreSQL</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Microservices</span>
+          <span class="chip">JWT</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Render</span>
+          <span class="chip">Maven</span>
+        </div>
+      </div>
+      <div class="prow-side">
+        <div class="prow-links">
+          <a href="https://nexora-prod.vercel.app/" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3H3v10h10V9M9 3h4v4M13 3L7 9"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/Nakkshh/Nexora" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="prow-glyph">N</div>
+      </div>
+   </div>
+
+    <!-- PROJECT 02 — NeuralNest -->
+    <div class="prow reveal">
+      <div class="prow-num">02</div>
+      <div class="prow-body">
+        <div class="prow-meta">
+          <span class="badge live"><span class="badge-dot"></span>Live</span>
+          <span class="prow-type">Full-Stack · AI</span>
+          <span class="prow-period">Nov 2025 – Jan 2026</span>
+        </div>
+        <div class="prow-name">NeuralNest</div>
+        <div class="prow-sub">Cognitive Load Monitoring Platform · React · Spring Boot · PostgreSQL · Docker · OCI</div>
+        <ul class="prow-bullets">
+          <li>Designed and deployed a full-stack cognitive load tracker capturing browser-level signals; built <strong>React.js</strong> frontend and <strong>Spring Boot</strong> microservices backend achieving <strong>sub-200ms API response times</strong> under simulated production load.</li>
+          <li>Implemented <strong>JWT-based authentication</strong> with Spring Security and RBAC authorization; optimized PostgreSQL queries and indexing achieving a <strong>60% latency reduction</strong> on critical data endpoints.</li>
+          <li>Automated full deployment pipeline with <strong>Docker + GitHub Actions CI/CD</strong>; maintained <strong>99.5% uptime</strong> on OCI cloud infrastructure with zero-downtime rolling deploys.</li>
+          <li>Achieved <strong>80% unit test coverage</strong> with JUnit 5 and Mockito; implemented React code splitting and HTTP caching for <strong>40% improvement in page load time</strong>.</li>
+        </ul>
+        <div class="prow-metrics">
+          <span class="pm"><strong>&lt;200ms</strong> API latency</span>
+          <span class="pm"><strong>60%</strong> query optimization</span>
+          <span class="pm"><strong>99.5%</strong> uptime</span>
+          <span class="pm"><strong>80%</strong> test coverage</span>
+          <span class="pm"><strong>40%</strong> faster page load</span>
+        </div>
+        <div class="prow-chips">
+          <span class="chip green">React.js</span>
+          <span class="chip green">Spring Boot</span>
+          <span class="chip green">PostgreSQL</span>
+          <span class="chip">Docker</span>
+          <span class="chip">JWT</span>
+          <span class="chip">Spring Security</span>
+          <span class="chip">JUnit 5</span>
+          <span class="chip">Mockito</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">OCI</span>
+          <span class="chip">Vite</span>
+          <span class="chip">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="prow-side">
+        <div class="prow-links">
+          <a href="https://neuralnest-prod.netlify.app/" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3H3v10h10V9M9 3h4v4M13 3L7 9"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/Nakkshh/neuralnest-prod" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="prow-glyph">N</div>
+      </div>
+    </div>
+
+    <!-- ARCHIVE -->
+    <div class="archive-label">archived · older experiments</div>
+
+    <!-- PROJECT 03 — Cold Email Generator -->
+    <div class="prow reveal">
+      <div class="prow-num">03</div>
+      <div class="prow-body">
+        <div class="prow-meta">
+          <span class="badge arch"><span class="badge-dot"></span>Archived</span>
+          <span class="prow-type">GenAI · Python</span>
+          <span class="prow-period">Mar 2025 – May 2025</span>
+        </div>
+        <div class="prow-name">Cold Email Generator</div>
+        <div class="prow-sub">LLM-Powered Outreach Automation · LangChain · Groq · ChromaDB · Streamlit</div>
+        <ul class="prow-bullets">
+          <li>Built an end-to-end <strong>GenAI pipeline</strong> using LangChain and Groq's Llama-3 model to auto-generate personalized cold emails by scraping job postings with WebBaseLoader and extracting structured JSON via LLM.</li>
+          <li>Integrated a <strong>ChromaDB vector store</strong> for semantic portfolio matching — at query time retrieves the most relevant portfolio links to embed contextually in each email.</li>
+          <li>Deployed as an interactive <strong>Streamlit</strong> app; accepts any job URL and outputs a production-ready cold email in seconds.</li>
+        </ul>
+        <div class="prow-chips">
+          <span class="chip" style="border-color:rgba(139,92,246,.3);color:#a78bfa;background:rgba(139,92,246,.06)">LangChain</span>
+          <span class="chip" style="border-color:rgba(139,92,246,.3);color:#a78bfa;background:rgba(139,92,246,.06)">Groq LLM</span>
+          <span class="chip" style="border-color:rgba(139,92,246,.3);color:#a78bfa;background:rgba(139,92,246,.06)">Llama-3</span>
+          <span class="chip">Python</span>
+          <span class="chip">ChromaDB</span>
+          <span class="chip">Streamlit</span>
+          <span class="chip">WebBaseLoader</span>
+        </div>
+      </div>
+      <div class="prow-side">
+        <div class="prow-links">
+          <a href="https://github.com/Nakkshh/ai-cold-email-generator" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="prow-glyph">E</div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:4rem">
+    <div class="footer-inner">
+      <div class="f-logo">NAKSHATRA<span> JAIN</span></div>
+      <ul class="f-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+      <div class="f-right">
+        <span id="footer-time" class="f-time"></span>
+        <span class="f-copy">© 2026 Nakshatra Jain · Portfolio v8</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+<script src="js/main.js"></script>
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <span class="bb-clock" id="bb-clock">--:--:-- IST</span>
+  <span class="bb-sep">|</span>
+  <span class="bb-loc">India</span>
+  <span class="bb-sep">|</span>
+  <div class="bb-status">
+    <span class="bb-status-dot"></span>
+    Open · Summer 2026
+  </div>
+  <span class="bb-right">© 2026 Nakshatra Jain · v8</span>
+</div>
+
+</body>
+</html>

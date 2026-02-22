@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Experience — Nakshatra Jain</title>
+<meta name="description" content="Experience — Nakshatra Jain. AWS Forage Solutions Architect simulation, OCI Architect & DevOps certified, Azure AZ-900. B.Tech CSE at VIT Bhopal, CGPA 8.56."/>
+<meta name="keywords" content="Nakshatra Jain experience, AWS Solutions Architect, OCI certified, VIT Bhopal, backend engineer intern 2026"/>
+<meta name="author" content="Nakshatra Jain"/>
+<meta property="og:title" content="Experience — Nakshatra Jain"/>
+<meta property="og:description" content="AWS Forage · OCI Architect · OCI DevOps · Azure AZ-900. B.Tech CSE at VIT Bhopal, Cloud & Automation specialization. CGPA 8.56."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://nakshatrajain.dev/experience.html"/>
+<meta property="og:image" content="https://nakshatrajain.dev/assets/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Experience — Nakshatra Jain"/>
+<meta name="twitter:description" content="AWS Forage · Oracle · Microsoft certified. VIT Bhopal 2027. Open to Summer 2026 internships."/>
+<meta name="twitter:image" content="https://nakshatrajain.dev/assets/og-image.png"/>
+<link rel="stylesheet" href="css/global.css"/>
+<style>
+.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line2); }
+.ecard {
+  background: var(--bg); padding: 2.5rem 2rem;
+  position: relative; overflow: hidden; transition: background .22s; cursor: default;
+}
+.ecard:hover { background: var(--bg2); }
+.ecard::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: var(--green); transform: scaleX(0); transform-origin: left;
+  transition: transform .42s cubic-bezier(.16,1,.3,1);
+}
+.ecard:hover::after { transform: scaleX(1); }
+.ecard.span2 { grid-column: span 2; }
+
+.ec-eyebrow {
+  font-family: var(--mono); font-size: .58rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--green); opacity: .85; margin-bottom: .55rem;
+}
+.ec-title {
+  font-family: var(--display); font-size: 1.45rem;
+  color: var(--text); margin-bottom: .2rem; letter-spacing: .03em;
+}
+.ec-org {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .07em;
+  color: var(--green); margin-bottom: .2rem; opacity: .85;
+}
+.ec-period {
+  font-family: var(--mono); font-size: .58rem; color: var(--text2);
+  margin-bottom: 1.1rem; letter-spacing: .06em;
+}
+.ec-body {
+  font-family: var(--body); font-size: .86rem; font-weight: 300;
+  color: var(--text2); line-height: 1.85;
+}
+.ec-body strong { color: var(--text); font-weight: 500; }
+.ec-bullets { list-style: none; display: flex; flex-direction: column; gap: .35rem; margin: .75rem 0; }
+.ec-bullets li {
+  font-family: var(--body); font-size: .84rem; font-weight: 300;
+  color: var(--text2); padding-left: 1rem; position: relative; line-height: 1.65;
+}
+.ec-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--text2); font-size: .7rem; }
+.ec-bullets li strong { color: var(--text); font-weight: 500; }
+.ec-chips { display: flex; flex-wrap: wrap; gap: .32rem; margin-top: .9rem; }
+
+/* highlight number box */
+.hbox {
+  border: 1px solid rgba(57,255,20,.18);
+  background: var(--green-dim); padding: .9rem 1.1rem;
+  margin-top: 1.1rem; display: inline-block;
+}
+.hb-val {
+  font-family: var(--display); font-size: 1.8rem;
+  color: var(--green); display: block; line-height: 1; margin-bottom: .18rem;
+}
+.hb-lbl {
+  font-family: var(--mono); font-size: .44rem; letter-spacing: .14em;
+  color: var(--text2); text-transform: uppercase;
+}
+
+/* education row layout */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line2); }
+
+/* cert table */
+.cert-table { display: flex; flex-direction: column; }
+.cert-row {
+  display: grid; grid-template-columns: 38px 1fr 54px 22px;
+  align-items: center; gap: .75rem;
+  padding: .85rem 1.25rem; border-bottom: 1px solid var(--line);
+  transition: background .18s; cursor: default;
+}
+.cert-row:last-child { border-bottom: none; }
+.cert-row:hover { background: var(--bg2); }
+.cert-idx { font-family: var(--mono); font-size: .44rem; color: var(--text3); opacity: .7; letter-spacing: .08em; }
+.cert-name { font-family: var(--mono); font-size: .64rem; color: var(--text); letter-spacing: .04em; }
+.cert-issuer { font-family: var(--mono); font-size: .46rem; color: var(--text2); margin-top: .1rem; }
+.cert-yr { font-family: var(--mono); font-size: .44rem; color: var(--text2); opacity: .8; text-align: right; }
+.cert-star { font-size: .7rem; color: var(--text3); opacity: .5; text-align: right; }
+.cert-row.starred .cert-star { color: var(--green); opacity: 1; }
+
+@media (max-width: 960px) {
+  .exp-grid, .edu-grid { grid-template-columns: 1fr; }
+  .ecard.span2 { grid-column: span 1; }
+  .ecard { padding: 2rem 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  .cert-panels-grid { grid-template-columns: 1fr; }
+  .cert-panel { padding: 1rem 1.25rem; }
+  .cert-panel-num { font-size: 1.4rem; }
+  /* hbox side by side on phones */
+  .hbox { padding: .65rem .85rem; }
+  .hb-val { font-size: 1.4rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="grid-bg"></div>
+<div id="cur"><div id="cur-dot"></div></div>
+<div id="cur-ring"></div>
+<div id="progress-bar"></div>
+
+<div id="cmd-overlay">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <span class="cmd-input-icon">⌕</span>
+      <input id="cmd-input" class="cmd-input" placeholder="Search pages, copy email, open links..." autocomplete="off"/>
+      <span class="cmd-esc">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results"></div>
+    <div class="cmd-footer">
+      <div class="cmd-footer-hint"><span class="cmd-key">↑↓</span> navigate</div>
+      <div class="cmd-footer-hint"><span class="cmd-key">↵</span> select</div>
+      <div class="cmd-footer-hint"><span class="cmd-key">ESC</span> close</div>
+    </div>
+  </div>
+</div>
+
+<nav class="topnav">
+  <a href="index.html" class="tn-logo">
+    <span class="tn-logo-dot"></span>NAKSHATRA JAIN
+  </a>
+  <div class="tn-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+  </div>
+  <div class="tn-right">
+    <div class="tn-status"><span class="tn-dot"></span>Open · Summer 2026</div>
+    <button class="tn-cmd-btn" data-cmd-open>⌕ <span class="tn-cmd-key">⌘K</span></button>
+    <a href="contact.html" class="tn-hire">Hire Me</a>
+  </div>
+</nav>
+
+<nav class="nav-pill">
+  <a href="index.html" data-label="Home">⌂</a>
+  <div class="nav-pill-sep"></div>
+  <a href="projects.html" data-label="Projects">◫</a>
+  <div class="nav-pill-sep"></div>
+  <a href="experience.html" data-label="Experience" class="active">◷</a>
+  <div class="nav-pill-sep"></div>
+  <a href="skills.html" data-label="Skills">◈</a>
+  <div class="nav-pill-sep"></div>
+  <a href="contact.html" data-label="Contact">✉</a>
+  <div class="nav-pill-sep"></div>
+  <a href="resume.html" data-label="Resume">⊡</a>
+</nav>
+
+<main style="padding-top:48px">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div>
+        <div class="ph-breadcrumb"><a href="index.html">Home</a><span class="ph-breadcrumb-sep">/</span>Experience</div>
+        <div class="ph-title">Work &amp; <em>Education</em></div>
+      </div>
+      <!-- <div class="ph-count">1 ROLE · 7 CERTS · VIT 2027</div> -->
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="wrap" style="padding-bottom:0">
+    <div class="sec-label">Work Experience</div>
+  </div>
+
+  <div class="exp-grid">
+
+    <!-- AWS Forage -->
+    <div class="ecard reveal">
+      <div class="ec-eyebrow">Virtual Experience · Work Simulation</div>
+      <div class="ec-title">Solutions Architect</div>
+      <div class="ec-org">Amazon Web Services · AWS Forage</div>
+      <div class="ec-period">2025 · Remote · Simulation</div>
+      <div class="ec-body">
+        <ul class="ec-bullets">
+          <li>Designed a <strong>scalable AWS architecture</strong> for a hypothetical high-traffic e-commerce platform using EC2, RDS, S3, CloudFront, and Auto Scaling Groups.</li>
+          <li>Built a cost-optimization report with <strong>Reserved Instance vs On-Demand</strong> analysis, identifying 35% projected savings for steady-state workloads.</li>
+          <li>Documented architecture decisions using <strong>AWS Well-Architected Framework</strong> pillars — reliability, performance efficiency, cost optimization.</li>
+        </ul>
+      </div>
+      <div class="ec-chips">
+        <span class="chip green">AWS EC2</span>
+        <span class="chip green">AWS RDS</span>
+        <span class="chip green">AWS S3</span>
+        <span class="chip">CloudFront</span>
+        <span class="chip">Auto Scaling</span>
+        <span class="chip">Well-Architected</span>
+      </div>
+    </div>
+
+    <!-- Timeline note + CGPA -->
+    <div class="ecard reveal d1">
+      <div class="ec-eyebrow">Status · 2026</div>
+      <div class="ec-title">Actively Seeking</div>
+      <div class="ec-org">Summer 2026 Internship · Full-time June 2027</div>
+      <div class="ec-period">Target: Backend · Cloud · Full-Stack</div>
+      <div class="ec-body">
+        Open to <strong>remote, hybrid, or on-site</strong> positions across India.
+        Looking for teams building real systems at scale — not just assignments.
+        Fast learner, production-focused mindset, strong fundamentals.
+      </div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.1rem">
+        <div class="hbox">
+          <span class="hb-val">8.56</span>
+          <span class="hb-lbl">CGPA · VIT Bhopal</span>
+        </div>
+        <div class="hbox">
+          <span class="hb-val">3rd</span>
+          <span class="hb-lbl">Year · B.Tech CSE</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="wrap" style="padding-bottom:0;padding-top:3.5rem">
+    <div class="sec-label">Education</div>
+  </div>
+
+  <div class="edu-grid">
+    <div class="ecard reveal">
+      <div class="ec-eyebrow">B.Tech · Computer Science</div>
+      <div class="ec-title">VIT Bhopal University</div>
+      <div class="ec-org">Cloud Computing & Automation Specialization</div>
+      <div class="ec-period">Aug 2023 – May 2027 · Bhopal, MP</div>
+      <div class="ec-body">
+        <ul class="ec-bullets">
+          <li>Specialization in <strong>Cloud Computing & Automation</strong> — distributed systems, cloud architecture, DevOps, containerization.</li>
+          <li>Relevant coursework: <strong>Data Structures & Algorithms, OS, DBMS, Computer Networks, Cloud Computing, Formal Methods, Theory of Computation</strong>.</li>
+          <li>CGPA: <strong>8.56 / 10.0</strong> (ongoing).</li>
+        </ul>
+      </div>
+      <div class="ec-chips">
+        <span class="chip green">Cloud Computing</span>
+        <span class="chip">Distributed Systems</span>
+        <span class="chip">OS</span>
+        <span class="chip">DBMS</span>
+        <span class="chip">Algorithms</span>
+      </div>
+    </div>
+
+    <div class="ecard reveal d1">
+      <div class="ec-eyebrow">Secondary Education</div>
+      <div class="ec-title">Kendriya Vidyalaya</div>
+      <div class="ec-org">CBSE · Class X & XII</div>
+      <div class="ec-period">Completed 2023</div>
+      <div class="ec-body">
+        Completed CBSE Class XII with <strong>Physics, Chemistry, Mathematics, and Computer Science</strong>.
+        Built foundational programming skills in Python and C++ during school years.
+      </div>
+      <div class="ec-chips">
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">CBSE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+<div class="wrap" style="padding-bottom:0;padding-top:3.5rem">
+  <div class="sec-label">Certifications</div>
+</div>
+
+<style>
+.cert-panels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line2);
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+}
+.cert-panel {
+  background: var(--bg);
+  padding: 1.35rem 1.5rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  transition: background .2s; cursor: default;
+  position: relative;
+}
+.cert-panel::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 2px;
+  background: var(--line2); transition: background .3s;
+}
+.cert-panel.starred::before { background: var(--green); }
+.cert-panel:hover { background: var(--bg2); }
+.cert-panel-num {
+  font-family: var(--display); font-size: 2rem;
+  color: var(--text2); opacity: .35;
+  flex-shrink: 0; line-height: 1;
+  -webkit-user-select:none;
+  user-select: none;
+}
+.cert-panel.starred .cert-panel-num { opacity: .12; color: var(--green); }
+.cert-panel-body { flex: 1; }
+.cert-panel-issuer {
+  font-family: var(--mono); font-size: .46rem;
+  color: var(--text3); letter-spacing: .08em; margin-bottom: .25rem;
+}
+.cert-panel.starred .cert-panel-issuer { color: var(--green); opacity: .65; }
+.cert-panel-name {
+  font-family: var(--mono); font-size: .66rem;
+  color: var(--text); letter-spacing: .03em;
+}
+.cert-panel.starred .cert-panel-name { color: var(--green); }
+.cert-panel-right {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: .35rem; flex-shrink: 0;
+}
+.cert-panel-yr {
+  font-family: var(--mono); font-size: .46rem;
+  color: var(--text3); letter-spacing: .06em;
+}
+.cert-panel-star { font-size: .7rem; color: var(--text3); opacity: .3; }
+.cert-panel.starred .cert-panel-star { color: var(--green); opacity: 1; }
+@media (max-width: 768px) {
+  .cert-panels-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="cert-panels-grid reveal">
+
+  <div class="cert-panel starred">
+    <div class="cert-panel-num">01</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">Oracle Cloud Infrastructure</div>
+      <div class="cert-panel-name">OCI Architect Associate</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2024</span>
+      <span class="cert-panel-star">★</span>
+    </div>
+  </div>
+
+  <div class="cert-panel starred">
+    <div class="cert-panel-num">02</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">Oracle Cloud Infrastructure</div>
+      <div class="cert-panel-name">OCI DevOps Professional</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2024</span>
+      <span class="cert-panel-star">★</span>
+    </div>
+  </div>
+
+  <div class="cert-panel starred">
+    <div class="cert-panel-num">03</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">Oracle Cloud Infrastructure</div>
+      <div class="cert-panel-name">OCI Foundations Associate</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2024</span>
+      <span class="cert-panel-star">★</span>
+    </div>
+  </div>
+
+  <div class="cert-panel starred">
+    <div class="cert-panel-num">04</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">Amazon Web Services · Forage</div>
+      <div class="cert-panel-name">AWS Solutions Architecture</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2025</span>
+      <span class="cert-panel-star">★</span>
+    </div>
+  </div>
+
+  <div class="cert-panel">
+    <div class="cert-panel-num">05</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">Microsoft Azure</div>
+      <div class="cert-panel-name">Azure Fundamentals AZ-900</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2024</span>
+      <span class="cert-panel-star">☆</span>
+    </div>
+  </div>
+
+  <div class="cert-panel">
+    <div class="cert-panel-num">06</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">HackerRank</div>
+      <div class="cert-panel-name">Java SE Fundamentals</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2024</span>
+      <span class="cert-panel-star">☆</span>
+    </div>
+  </div>
+
+  <!-- <div class="cert-panel">
+    <div class="cert-panel-num">07</div>
+    <div class="cert-panel-body">
+      <div class="cert-panel-issuer">Google Cloud</div>
+      <div class="cert-panel-name">Cloud Digital Leader</div>
+    </div>
+    <div class="cert-panel-right">
+      <span class="cert-panel-yr">2024</span>
+      <span class="cert-panel-star">☆</span>
+    </div>
+  </div> -->
+
+</div>
+
+
+  <footer style="margin-top:4rem">
+    <div class="footer-inner">
+      <div class="f-logo">NAKSHATRA<span> JAIN</span></div>
+      <ul class="f-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+      <div class="f-right">
+        <span id="footer-time" class="f-time"></span>
+        <span class="f-copy">© 2026 Nakshatra Jain · Portfolio v8</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+<script src="js/main.js"></script>
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <span class="bb-clock" id="bb-clock">--:--:-- IST</span>
+  <span class="bb-sep">|</span>
+  <span class="bb-loc">India</span>
+  <span class="bb-sep">|</span>
+  <div class="bb-status">
+    <span class="bb-status-dot"></span>
+    Open · Summer 2026
+  </div>
+  <span class="bb-right">© 2026 Nakshatra Jain · v8</span>
+</div>
+
+</body>
+</html>
