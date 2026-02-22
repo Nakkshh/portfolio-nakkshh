@@ -190,40 +190,92 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── GITHUB STATS ── */
-(async () => {
-  const fallback = { repos: 12, stars: 1, followers: 3, prs: 2, commits: 101 };
-  const set = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = val;
-  };
+  (async () => {
+    const CACHE_KEY = 'gh_stats_cache';
+    const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
-  /* always show fallback first — instant, no flash */
-  set('gh-commits',   fallback.commits);
-  set('gh-repos',     fallback.repos);
-  set('gh-stars',     fallback.stars);
-  set('gh-followers', fallback.followers);
-  set('gh-prs',       fallback.prs);
+    const set = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
 
-  /* skip API on localhost */
-  const isLocal = ['localhost','127.0.0.1'].includes(location.hostname);
-  if (isLocal) return;
+    const fallback = { repos: 12, stars: 1, followers: 3, prs: 2, commits: 101 };
 
-  try {
-    const [uRes, rRes] = await Promise.all([
-      fetch('https://api.github.com/users/Nakkshh'),
-      fetch('https://api.github.com/users/Nakkshh/repos?per_page=100')
-    ]);
-    if (!uRes.ok) return;
-    const [uData, rData] = await Promise.all([uRes.json(), rRes.json()]);
-    const stars = Array.isArray(rData)
-      ? rData.reduce((s, r) => s + r.stargazers_count, 0)
-      : fallback.stars;
-    set('gh-repos',     uData.public_repos ?? fallback.repos);
-    set('gh-stars',     stars);
-    set('gh-followers', uData.followers    ?? fallback.followers);
-  } catch { /* keep fallback silently */ }
-})();
+    // Apply fallback immediately so UI never shows blank
+    set('gh-commits',   fallback.commits);
+    set('gh-repos',     fallback.repos);
+    set('gh-stars',     fallback.stars);
+    set('gh-followers', fallback.followers);
+    set('gh-prs',       fallback.prs);
 
+    // Try cache first — avoids rate limit on repeat visits
+    try {
+      const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || 'null');
+      if (cached && (Date.now() - cached.ts) < CACHE_TTL) {
+        set('gh-repos',     cached.repos);
+        set('gh-stars',     cached.stars);
+        set('gh-followers', cached.followers);
+        set('gh-prs',       cached.prs);
+        set('gh-commits',   cached.commits);
+        return; // fresh cache — skip API call
+      }
+    } catch (_) {}
+
+    // Skip actual fetch on localhost
+    const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+    if (isLocal) return;
+
+    try {
+      const headers = { 'Accept': 'application/vnd.github+json' };
+
+      const [uRes, rRes, evRes] = await Promise.all([
+        fetch('https://api.github.com/users/Nakkshh', { headers }),
+        fetch('https://api.github.com/users/Nakkshh/repos?per_page=100', { headers }),
+        fetch('https://api.github.com/users/Nakkshh/events/public?per_page=100', { headers })
+      ]);
+
+      // If rate-limited or error — keep fallback, don't crash
+      if (!uRes.ok) return;
+
+      const [uData, rData, evData] = await Promise.all([
+        uRes.json(),
+        rRes.ok ? rRes.json() : Promise.resolve([]),
+        evRes.ok ? evRes.json() : Promise.resolve([])
+      ]);
+
+      // Stars: sum across all public repos
+      const stars = Array.isArray(rData)
+        ? rData.reduce((s, r) => s + (r.stargazers_count || 0), 0)
+        : fallback.stars;
+
+      // Commits: count PushEvents in recent public events (last ~100 events)
+      const commits = Array.isArray(evData)
+        ? evData
+            .filter(e => e.type === 'PushEvent')
+            .reduce((sum, e) => sum + (e.payload?.size || 0), 0)
+        : null;
+
+      const stats = {
+        repos:     uData.public_repos ?? fallback.repos,
+        stars,
+        followers: uData.followers    ?? fallback.followers,
+        prs:       fallback.prs, // PRs not in public user API — keep fallback
+        commits:   commits > 0 ? commits + '+' : fallback.commits,
+        ts:        Date.now()
+      };
+
+      // Update UI
+      set('gh-repos',     stats.repos);
+      set('gh-stars',     stats.stars);
+      set('gh-followers', stats.followers);
+      set('gh-prs',       stats.prs);
+      set('gh-commits',   stats.commits);
+
+      // Cache for 30 min to save rate limit quota
+      sessionStorage.setItem(CACHE_KEY, JSON.stringify(stats));
+
+    } catch (_) { /* silently keep fallback */ }
+  })();
 
   function getTimeAgo(date) {
     const sec = Math.floor((Date.now() - date) / 1000);

@@ -27,28 +27,66 @@
   display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 2.5rem; border-bottom: 1px solid var(--line2);
   background: var(--bg2); flex-shrink: 0;
+  flex-wrap: wrap; gap: .75rem;
 }
 .rtb-left { display: flex; flex-direction: column; gap: .25rem; }
 .rtb-title { font-family: var(--display); font-size: 1.2rem; color: var(--text); letter-spacing: .06em; }
 .rtb-sub { font-family: var(--mono); font-size: .46rem; color: var(--text3); letter-spacing: .12em; }
-.rtb-actions { display: flex; align-items: center; gap: .65rem; }
+.rtb-actions { display: flex; align-items: center; gap: .65rem; flex-wrap: wrap; }
+
 .resume-frame-wrap {
   flex: 1; background: var(--surface);
   display: flex; align-items: stretch;
   min-height: calc(100vh - 48px - 64px);
+  position: relative;
 }
 .resume-frame {
-  flex: 1; border: none;
+  flex: 1; border: none; width: 100%;
   min-height: calc(100vh - 48px - 64px);
 }
-.resume-fallback {
-  flex: 1; display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 1.25rem; padding: 3rem;
-  text-align: center;
+
+/* Loading state */
+.resume-loading {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1rem; background: var(--surface);
+  font-family: var(--mono); font-size: .58rem;
+  color: var(--text3); letter-spacing: .1em;
+  z-index: 1; transition: opacity .4s;
 }
-.rf-icon { font-size: 2.5rem; opacity: .3; }
-.rf-title { font-family: var(--display); font-size: 1.4rem; color: var(--text); letter-spacing: .06em; }
-.rf-sub { font-family: var(--mono); font-size: .52rem; color: var(--text3); letter-spacing: .08em; }
+.resume-loading.hidden { opacity: 0; pointer-events: none; }
+.rl-spinner {
+  width: 20px; height: 20px;
+  border: 2px solid var(--line2);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mobile fallback card — shown only if viewer also fails */
+.resume-mobile-fallback {
+  display: none;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.25rem; padding: 3rem 1.5rem; text-align: center;
+  min-height: 60vh;
+}
+.resume-mobile-fallback.show { display: flex; }
+.rmf-icon { font-size: 3rem; opacity: .25; }
+.rmf-title { font-family: var(--display); font-size: 1.3rem; color: var(--text); letter-spacing: .06em; }
+.rmf-sub { font-family: var(--mono); font-size: .52rem; color: var(--text3); letter-spacing: .06em; line-height: 1.8; max-width: 280px; }
+
+@media (max-width: 640px) {
+  .resume-topbar { padding: .85rem 1rem; }
+  .rtb-title { font-size: .95rem; }
+  .resume-frame {
+    min-height: calc(100vh - 48px - 80px);
+  }
+  .resume-frame-wrap {
+    min-height: calc(100vh - 48px - 80px);
+  }
+}
 </style>
 </head>
 <body>
@@ -110,34 +148,50 @@
 <div class="resume-shell">
   <div class="resume-topbar">
     <div class="rtb-left">
-        <div class="rtb-title">RESUME</div>
-        <div class="rtb-sub">Nakshatra Jain · B.Tech CSE · VIT Bhopal · 2027</div>
+      <div class="rtb-title">RESUME</div>
+      <div class="rtb-sub">Nakshatra Jain · B.Tech CSE · VIT Bhopal · 2027</div>
     </div>
     <div class="rtb-actions">
-        <a href="assets/Nakshatra_Resume_Updated.pdf" download class="btn secondary"
-        style="font-size:.5rem;padding:.4rem .9rem;">↓ Download PDF</a>
-        <a href="contact.html" class="btn primary"
-        style="font-size:.5rem;padding:.4rem .9rem;">Hire Me →</a>
+      <a href="assets/Nakshatra_Resume_Updated.pdf" download class="btn secondary"
+         style="font-size:.5rem;padding:.4rem .9rem;">↓ Download PDF</a>
+      <a href="contact.html" class="btn primary"
+         style="font-size:.5rem;padding:.4rem .9rem;">Hire Me →</a>
     </div>
+  </div>
+
+  <div class="resume-frame-wrap" id="resume-wrap">
+
+    <!-- Spinner shown while iframe loads -->
+    <div class="resume-loading" id="resume-loading">
+      <div class="rl-spinner"></div>
+      LOADING RESUME...
     </div>
 
-    <div class="resume-frame-wrap">
+    <!-- The iframe — src set by JS below -->
     <iframe
-        src="assets/Nakshatra_Resume_Updated.pdf"
-        class="resume-frame"
-        title="Nakshatra Jain Resume">
-        <!-- iOS Safari / fallback -->
-        <div class="resume-fallback">
-        <div class="rf-icon">⊡</div>
-        <div class="rf-title">PDF VIEWER UNAVAILABLE</div>
-        <div class="rf-sub">Your browser does not support inline PDFs.</div>
-        <a href="assets/Nakshatra_Resume_Updated.pdf"
-            download class="btn primary" style="margin-top:1rem">
-            ↓ Download Resume PDF
-        </a>
-        </div>
+      id="resume-frame"
+      class="resume-frame"
+      title="Nakshatra Jain Resume"
+      allowfullscreen>
     </iframe>
+
+    <!-- Last-resort fallback (only shown if iframe errors) -->
+    <div class="resume-mobile-fallback" id="resume-fallback">
+      <div class="rmf-icon">⊡</div>
+      <div class="rmf-title">VIEW RESUME</div>
+      <div class="rmf-sub">Inline preview unavailable in this browser. Open directly or download below.</div>
+      <a href="assets/Nakshatra_Resume_Updated.pdf"
+         target="_blank" rel="noopener"
+         class="btn primary" style="margin-top:.5rem">
+        ↗ Open PDF
+      </a>
+      <a href="assets/Nakshatra_Resume_Updated.pdf"
+         download class="btn secondary" style="font-size:.5rem;padding:.4rem .9rem;">
+        ↓ Download PDF
+      </a>
     </div>
+
+  </div>
 </div>
 
 <footer style="margin-bottom:26px">
@@ -159,6 +213,47 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<script>
+(function () {
+  const frame    = document.getElementById('resume-frame');
+  const loading  = document.getElementById('resume-loading');
+  const fallback = document.getElementById('resume-fallback');
+  const PDF      = 'assets/Nakshatra_Resume_Updated.pdf';
+
+  // Detect mobile / tablet
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i
+                    .test(navigator.userAgent);
+
+  // On mobile use Google Docs viewer; on desktop use direct PDF
+  const fullPdfUrl = 'https://nakshatrajain.dev/' + PDF;
+  const src = isMobile
+    ? 'https://docs.google.com/viewer?url=' + encodeURIComponent(fullPdfUrl) + '&embedded=true'
+    : PDF;
+
+  frame.src = src;
+
+  // Hide spinner once iframe content loads
+  frame.addEventListener('load', function () {
+    loading.classList.add('hidden');
+  });
+
+  // If load takes > 12s, show fallback (Google Docs can be slow)
+  const timeout = setTimeout(function () {
+    if (!loading.classList.contains('hidden')) {
+      loading.classList.add('hidden');
+      frame.style.display = 'none';
+      fallback.classList.add('show');
+    }
+  }, 12000);
+
+  frame.addEventListener('load', function () {
+    clearTimeout(timeout);
+    loading.classList.add('hidden');
+  });
+})();
+</script>
+
 <!-- BOTTOM BAR -->
 <div class="bottom-bar">
   <span class="bb-clock" id="bb-clock">--:--:-- IST</span>
