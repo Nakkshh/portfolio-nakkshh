@@ -175,22 +175,21 @@
       allowfullscreen>
     </iframe>
 
-    <!-- Last-resort fallback (only shown if iframe errors) -->
+    <!-- iOS Safari fallback only -->
     <div class="resume-mobile-fallback" id="resume-fallback">
-      <div class="rmf-icon">⊡</div>
-      <div class="rmf-title">VIEW RESUME</div>
-      <div class="rmf-sub">Inline preview unavailable in this browser. Open directly or download below.</div>
-      <a href="assets/Nakshatra_Resume_Updated.pdf"
-         target="_blank" rel="noopener"
-         class="btn primary" style="margin-top:.5rem">
-        ↗ Open PDF
-      </a>
-      <a href="assets/Nakshatra_Resume_Updated.pdf"
-         download class="btn secondary" style="font-size:.5rem;padding:.4rem .9rem;">
+    <div class="rmf-icon">⊡</div>
+    <div class="rmf-title">iOS SAFARI</div>
+    <div class="rmf-sub">Safari doesn't support inline PDFs.<br/>Tap below to open in a new tab.</div>
+    <a href="assets/Nakshatra_Resume_Updated.pdf"
+        target="_blank" rel="noopener"
+        class="btn primary" style="margin-top:.5rem">
+        ↗ Open PDF in New Tab
+    </a>
+    <a href="assets/Nakshatra_Resume_Updated.pdf"
+        download class="btn secondary" style="font-size:.5rem;padding:.4rem .9rem;margin-top:.35rem">
         ↓ Download PDF
-      </a>
+    </a>
     </div>
-
   </div>
 </div>
 
@@ -221,36 +220,27 @@
   const fallback = document.getElementById('resume-fallback');
   const PDF      = 'assets/Nakshatra_Resume_Updated.pdf';
 
-  // Detect mobile / tablet
-  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i
-                    .test(navigator.userAgent);
+  // Only iOS Safari can't render PDFs inline — everything else can
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-  // On mobile use Google Docs viewer; on desktop use direct PDF
-  const fullPdfUrl = 'https://nakshatrajain.dev/' + PDF;
-  const src = isMobile
-    ? 'https://docs.google.com/viewer?url=' + encodeURIComponent(fullPdfUrl) + '&embedded=true'
-    : PDF;
-
-  frame.src = src;
-
-  // Hide spinner once iframe content loads
-  frame.addEventListener('load', function () {
+  if (isIOS) {
+    // Show fallback buttons immediately, don't attempt iframe
     loading.classList.add('hidden');
-  });
+    frame.style.display = 'none';
+    fallback.classList.add('show');
+  } else {
+    // Android Chrome + all desktops — direct PDF renders natively
+    frame.src = PDF + '#toolbar=0&navpanes=0&scrollbar=0';
 
-  // If load takes > 12s, show fallback (Google Docs can be slow)
-  const timeout = setTimeout(function () {
-    if (!loading.classList.contains('hidden')) {
+    const timeout = setTimeout(function () {
       loading.classList.add('hidden');
-      frame.style.display = 'none';
-      fallback.classList.add('show');
-    }
-  }, 12000);
+    }, 8000);
 
-  frame.addEventListener('load', function () {
-    clearTimeout(timeout);
-    loading.classList.add('hidden');
-  });
+    frame.addEventListener('load', function () {
+      clearTimeout(timeout);
+      loading.classList.add('hidden');
+    });
+  }
 })();
 </script>
 
