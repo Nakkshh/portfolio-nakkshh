@@ -5,13 +5,16 @@ on:
     - cron: '0 */6 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-stats:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch and write stats.json
+      - name: Fetch stats and write JSON
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -36,17 +39,21 @@ jobs:
           STARS=$(echo "$REPOS" | python3 -c \
             "import sys,json; r=json.load(sys.stdin); print(sum(x.get('stargazers_count',0) for x in r) if isinstance(r,list) else 0)")
 
-          cat > assets/stats.json << EOF
-          {
-            "commits": $COMMITS,
-            "repos": $PUBLIC_REPOS,
-            "stars": $STARS,
-            "followers": $FOLLOWERS,
-            "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          python3 -c "
+          import json
+          data = {
+            'commits': int('$COMMITS'),
+            'repos': int('$PUBLIC_REPOS'),
+            'stars': int('$STARS'),
+            'followers': int('$FOLLOWERS'),
+            'updated': '$(date -u +%Y-%m-%dT%H:%M:%SZ)'
           }
-          EOF
+          with open('assets/stats.json', 'w') as f:
+            json.dump(data, f, indent=2)
+          print('Written:', data)
+          "
 
-      - name: Commit stats.json
+      - name: Commit and push stats.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
