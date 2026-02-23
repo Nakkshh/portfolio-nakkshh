@@ -71,18 +71,6 @@
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Mobile fallback card — shown only if viewer also fails */
-.resume-mobile-fallback {
-  display: none;
-  flex-direction: column; align-items: center; justify-content: center;
-  gap: 1.25rem; padding: 3rem 1.5rem; text-align: center;
-  min-height: 60vh;
-}
-.resume-mobile-fallback.show { display: flex; }
-.rmf-icon { font-size: 3rem; opacity: .25; }
-.rmf-title { font-family: var(--display); font-size: 1.3rem; color: var(--text); letter-spacing: .06em; }
-.rmf-sub { font-family: var(--mono); font-size: .52rem; color: var(--text3); letter-spacing: .06em; line-height: 1.8; max-width: 280px; }
-
 @media (max-width: 640px) {
   .resume-topbar { padding: .85rem 1rem; }
   .rtb-title { font-size: .95rem; }
@@ -165,38 +153,38 @@
     </div>
   </div>
 
-  <div class="resume-frame-wrap" id="resume-wrap">
+    <div class="resume-frame-wrap" id="resume-wrap">
 
-    <!-- Spinner shown while iframe loads -->
-    <div class="resume-loading" id="resume-loading">
-      <div class="rl-spinner"></div>
-      LOADING RESUME...
+    <!-- Mobile (all phones) — resume as image -->
+        <div id="resume-img-view" style="display:none; width:100%; background:var(--surface); padding:1.25rem; box-sizing:border-box;">
+        <img
+            src="assets/resume-page-1.jpg"
+            alt="Nakshatra Jain Resume"
+            style="width:100%; max-width:860px; display:block; margin:0 auto; border:1px solid var(--line2);"
+        />
+        <div style="text-align:center; padding:1rem 0 .5rem;">
+            <a href="assets/Nakshatra_Resume_Updated.pdf"
+            target="_blank" rel="noopener"
+            class="btn primary" style="font-size:.5rem;padding:.5rem 1.2rem;">
+            ↗ Open Full PDF
+            </a>
+        </div>
+        </div>
+
+        <!-- Spinner shown while iframe loads -->
+        <div class="resume-loading" id="resume-loading">
+        <div class="rl-spinner"></div>
+        LOADING RESUME...
+        </div>
+
+        <!-- The iframe — src set by JS below -->
+        <iframe
+        id="resume-frame"
+        class="resume-frame"
+        title="Nakshatra Jain Resume"
+        allowfullscreen>
+        </iframe>
     </div>
-
-    <!-- The iframe — src set by JS below -->
-    <iframe
-      id="resume-frame"
-      class="resume-frame"
-      title="Nakshatra Jain Resume"
-      allowfullscreen>
-    </iframe>
-
-    <!-- iOS Safari fallback only -->
-    <div class="resume-mobile-fallback" id="resume-fallback">
-    <div class="rmf-icon">⊡</div>
-    <div class="rmf-title">iOS SAFARI</div>
-    <div class="rmf-sub">Safari doesn't support inline PDFs.<br/>Tap below to open in a new tab.</div>
-    <a href="assets/Nakshatra_Resume_Updated.pdf"
-        target="_blank" rel="noopener"
-        class="btn primary" style="margin-top:.5rem">
-        ↗ Open PDF in New Tab
-    </a>
-    <a href="assets/Nakshatra_Resume_Updated.pdf"
-        download class="btn secondary" style="font-size:.5rem;padding:.4rem .9rem;margin-top:.35rem">
-        ↓ Download PDF
-    </a>
-    </div>
-  </div>
 </div>
 
 <footer style="margin-bottom:26px">
@@ -221,21 +209,24 @@
 
 <script>
 (function () {
-  const frame    = document.getElementById('resume-frame');
-  const loading  = document.getElementById('resume-loading');
-  const fallback = document.getElementById('resume-fallback');
-  const PDF      = 'assets/Nakshatra_Resume_Updated.pdf';
+  const frame   = document.getElementById('resume-frame');
+  const loading = document.getElementById('resume-loading');
+  const imgView = document.getElementById('resume-img-view');
+  const PDF     = 'assets/Nakshatra_Resume_Updated.pdf';
 
-  // Only iOS Safari can't render PDFs inline — everything else can
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  // True if phone — iPhone, Android phone (excludes tablets at 768px+)
+  const ua       = navigator.userAgent;
+  const isPhone  = /iPhone|iPod/.test(ua) ||
+                   (/Android/.test(ua) && !/Tablet|iPad/.test(ua) && window.innerWidth < 768);
 
-  if (isIOS) {
-    // Show fallback buttons immediately, don't attempt iframe
-    loading.classList.add('hidden');
-    frame.style.display = 'none';
-    fallback.classList.add('show');
+  if (isPhone) {
+    // All phones — show crisp image
+    loading.style.display = 'none';
+    frame.style.display   = 'none';
+    imgView.style.display = 'block';
+
   } else {
-    // Android Chrome + all desktops — direct PDF renders natively
+    // Tablet + Desktop — native PDF iframe
     frame.src = PDF + '#toolbar=0&navpanes=0&scrollbar=0';
 
     const timeout = setTimeout(function () {
