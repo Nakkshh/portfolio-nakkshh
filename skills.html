@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Skills — Nakshatra Jain</title>
-<meta name="description" content="Tech stack of Nakshatra Jain — Java, Spring Boot, React, PostgreSQL, Docker, AWS, OCI. Backend and cloud engineer with 6+ certifications and 40+ production-used tools."/>
-<meta name="keywords" content="Nakshatra Jain skills, Java Spring Boot, React PostgreSQL, Docker AWS OCI, backend engineer, cloud developer"/>
+<meta name="description" content="Tech stack of Nakshatra Jain — Java, Spring Boot, Kafka, Redis, PostgreSQL, Docker, AWS, OCI. Backend and cloud engineer with 6+ certifications."/>
+<meta name="keywords" content="Nakshatra Jain skills, Java Spring Boot, Kafka Redis, PostgreSQL Docker AWS OCI, backend engineer, cloud developer"/>
 <meta name="author" content="Nakshatra Jain"/>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"/>
@@ -14,115 +14,16 @@
 <link rel="manifest" href="assets/site.webmanifest"/>
 <meta name="theme-color" content="#0a0a0a"/>
 <meta property="og:title" content="Skills — Nakshatra Jain"/>
-<meta property="og:description" content="Java · Spring Boot · React · PostgreSQL · Docker · AWS · OCI. 6+ certs, 40+ tools, production-grade backend and cloud engineer."/>
+<meta property="og:description" content="Java · Spring Boot · Kafka · Redis · PostgreSQL · Docker · AWS · OCI. 6+ certs, backend and cloud engineer."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://portfolio-nakkshh.vercel.app/skills.html"/>
 <meta property="og:image" content="https://portfolio-nakkshh.vercel.app/assets/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Skills — Nakshatra Jain"/>
-<meta name="twitter:description" content="Java · Spring Boot · React · Docker · AWS · OCI. Backend & cloud engineer open to Summer 2026 internships."/>
+<meta name="twitter:description" content="Java · Spring Boot · Kafka · Redis · Docker · AWS · OCI. Backend & cloud engineer open to Summer 2026 internships."/>
 <meta name="twitter:image" content="https://portfolio-nakkshh.vercel.app/assets/og-image.png"/>
 <link rel="stylesheet" href="css/global.css"/>
 <style>
-
-/* ── SKILL BAR SECTION ── */
-/* .sk-section { border-bottom: 1px solid var(--line2); }
-.sk-inner {
-  max-width: 1100px; margin: 0 auto;
-  padding: 3.5rem 2.5rem;
-}
-.sk-heading {
-  font-family: var(--display); font-size: 1.1rem; letter-spacing: .08em;
-  color: var(--text); margin-bottom: 1.5rem;
-  display: flex; align-items: center; gap: .75rem;
-}
-.sk-heading::after {
-  content: ''; flex: 1; height: 1px; background: var(--line2);
-} */
-
-/* individual skill row */
-/* .sr { display: flex; flex-direction: column; gap: 0; }
-.sr-row {
-  display: grid; grid-template-columns: 165px 1fr 52px;
-  align-items: center; gap: 1.25rem;
-  padding: .65rem 0;
-  border-bottom: 1px solid var(--line);
-  transition: border-color .2s, background .2s;
-  cursor: default;
-}
-.sr-row:last-child { border-bottom: none; }
-.sr-row:hover { border-bottom-color: rgba(57,255,20,.15); }
-
-.sr-name {
-  font-family: var(--mono); font-size: .58rem;
-  color: var(--text2); letter-spacing: .06em;
-}
-.sr-bar-wrap {
-  height: 2px; background: var(--surface2); overflow: hidden;
-  position: relative;
-}
-.sr-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--green), rgba(57,255,20,.4));
-  box-shadow: 0 0 8px var(--green-glow);
-  width: 0;
-  transition: width 1.3s cubic-bezier(.16,1,.3,1);
-}
-.sr-fill.animate { width: var(--pct); }
-.sr-pct {
-  font-family: var(--mono); font-size: .46rem;
-  color: var(--text2); text-align: right; letter-spacing: .06em;
-} */
-
-/* ── SKILL TILES SECTION ── */
-/* .sk4-section { border-bottom: 1px solid var(--line2); padding: 3.5rem 0; }
-.sk4-inner { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
-.sk4-group { margin-bottom: 2.5rem; }
-.sk4-group:last-child { margin-bottom: 0; }
-.sk4-heading {
-  font-family: var(--display); font-size: 1.1rem; letter-spacing: .08em;
-  color: var(--text); margin-bottom: 1.25rem;
-  display: flex; align-items: center; gap: .75rem;
-}
-.sk4-heading::after { content: ''; flex: 1; height: 1px; background: var(--line2); }
-.sk4-tiles {
-  display: flex; flex-wrap: wrap; gap: 1px;
-  background: var(--line2);
-  border: 1px solid var(--line2);
-}
-.sk4-tile {
-  background: var(--bg);
-  padding: .9rem 1.15rem;
-  min-width: 130px; flex: 1;
-  display: flex; flex-direction: column; gap: .35rem;
-  cursor: default; transition: background .2s;
-  position: relative; overflow: hidden;
-}
-.sk4-tile::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 1px;
-  background: var(--green); transform: scaleX(0);
-  transform-origin: left; transition: transform .3s;
-}
-.sk4-tile:hover { background: var(--bg2); }
-.sk4-tile:hover::after { transform: scaleX(1); }
-.sk4-tile.core { background: rgba(57,255,20,.025); }
-.sk4-tile.core:hover { background: rgba(57,255,20,.05); }
-.sk4-tile-name {
-  font-family: var(--mono); font-size: .62rem;
-  color: var(--text); letter-spacing: .04em;
-}
-.sk4-tile-cat {
-  font-family: var(--mono); font-size: .42rem;
-  letter-spacing: .16em; text-transform: uppercase;
-  color: var(--text3); opacity: .6;
-}
-.sk4-tile.core .sk4-tile-name { color: var(--green); }
-.sk4-tile.core .sk4-tile-cat { color: var(--green); opacity: .55; }
-
-@media (max-width: 640px) {
-  .sk4-tile { min-width: 100px; }
-} */
 
 /* ── SKILL SPLIT SECTION ── */
 .sk-split { border-bottom: 1px solid var(--line2); }
@@ -160,21 +61,6 @@
   color: var(--text); letter-spacing: .08em;
   margin-bottom: 1rem;
 }
-/* .sk-split-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .85rem; }
-.sk-split-chip {
-  font-family: var(--mono); font-size: .52rem;
-  letter-spacing: .05em;
-  padding: .35rem .75rem;
-  border: 1px solid var(--line2);
-  background: var(--surface);
-  color: var(--text2);
-  transition: all .18s; cursor: default;
-}
-.sk-split-chip:hover { border-color: rgba(57,255,20,.3); color: var(--green); background: var(--green-dim); }
-.sk-split-chip.core {
-  border-color: rgba(57,255,20,.25);
-  color: var(--green); background: var(--green-dim);
-} */
 .sk-split-count {
   font-family: var(--mono); font-size: .46rem;
   color: var(--text3); letter-spacing: .1em; opacity: .6;
@@ -201,17 +87,20 @@
   padding: .16rem .45rem; border: 1px solid transparent;
   text-align: center; white-space: nowrap;
 }
-.sk-level-tag.expert {
+/* Proficient — green */
+.sk-level-tag.proficient {
   color: var(--green); border-color: rgba(57,255,20,.3);
   background: var(--green-dim);
 }
-.sk-level-tag.proficient {
+/* Familiar — grey */
+.sk-level-tag.familiar {
   color: var(--text2); border-color: var(--line2);
   background: var(--surface);
 }
-.sk-level-tag.familiar {
+/* Learning — black */
+.sk-level-tag.learning {
   color: var(--text3); border-color: var(--line);
-  background: transparent; opacity: .7;
+  background: #000; opacity: .85;
 }
 .sk-level-note {
   font-family: var(--mono); font-size: .46rem;
@@ -306,21 +195,6 @@
   font-family: var(--mono); font-size: .5rem; letter-spacing: .12em;
   color: var(--green); opacity: .85; min-width: 80px;
 }
-/* .li-bar {
-  margin-left: auto; display: flex; align-items: center; gap: .5rem;
-}
-.li-progress {
-  width: 60px; height: 2px;
-  background: var(--surface2); overflow: hidden;
-}
-.li-prog-fill {
-  height: 100%; background: var(--green);
-  box-shadow: 0 0 4px var(--green-glow);
-}
-.li-pct-txt {
-  font-family: var(--mono); font-size: .42rem;
-  color: var(--text2); letter-spacing: .06em;
-} */
 
 /* ── STAT ROW ── */
 .stat-strip {
@@ -379,14 +253,10 @@
 <body>
 
 <div id="grid-bg"></div>
-<!-- CURSOR -->
 <div id="cur"><div id="cur-dot"></div></div>
 <div id="cur-ring"></div>
-
-<!-- PROGRESS BAR -->
 <div id="progress-bar"></div>
 
-<!-- COMMAND PALETTE -->
 <div id="cmd-overlay">
   <div class="cmd-box">
     <div class="cmd-input-wrap">
@@ -405,7 +275,6 @@
   </div>
 </div>
 
-<!-- TOP NAV -->
 <nav class="topnav">
   <a href="index.html" class="tn-logo">
     <span class="tn-logo-dot"></span>NAKSHATRA JAIN
@@ -419,13 +288,12 @@
     <a href="resume.html">Resume</a>
   </div>
   <div class="tn-right">
-    <div class="tn-status"><span class="tn-dot"></span>Open · Summer 2026</div>
+    <div class="tn-status"><span class="tn-dot"></span>Open to Internships</div>
     <button class="tn-cmd-btn" data-cmd-open>⌕ <span class="tn-cmd-key">⌘K</span></button>
     <a href="contact.html" class="tn-hire">Hire Me</a>
   </div>
 </nav>
 
-<!-- FLOATING NAV PILL -->
 <nav class="nav-pill">
   <a href="index.html" data-label="Home">⌂</a>
   <div class="nav-pill-sep"></div>
@@ -442,7 +310,6 @@
 
 <main style="padding-top:48px">
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="page-header-inner">
       <div>
@@ -453,7 +320,6 @@
         </div>
         <div class="ph-title">Tech <em>Stack</em></div>
       </div>
-      <!-- <div class="ph-count">40+ TOOLS · PRODUCTION-USED</div> -->
     </div>
   </div>
 
@@ -463,12 +329,12 @@
       <div class="stat-col">
         <span class="sc-val"><span data-count="6">0</span><span class="sc-unit">+</span></span>
         <div class="sc-lbl">Certifications</div>
-        <div class="sc-sub">Oracle · AWS · Microsoft · Google</div>
+        <div class="sc-sub">Oracle · AWS · Microsoft</div>
       </div>
       <div class="stat-col">
-        <span class="sc-val"><span data-count="40">0</span><span class="sc-unit">+</span></span>
+        <span class="sc-val"><span data-count="30">0</span><span class="sc-unit">+</span></span>
         <div class="sc-lbl">Tools & Libraries</div>
-        <div class="sc-sub">Production-used</div>
+        <div class="sc-sub">Used across projects</div>
       </div>
       <div class="stat-col">
         <span class="sc-val"><span data-count="3">0</span><span class="sc-unit"></span></span>
@@ -490,21 +356,23 @@
     <div class="sk-split-nav">
       <div class="sk-split-nav-item active" data-nav="0"><div class="sk-split-nav-dot"></div>Backend</div>
       <div class="sk-split-nav-item" data-nav="1"><div class="sk-split-nav-dot"></div>Frontend</div>
-      <div class="sk-split-nav-item" data-nav="2"><div class="sk-split-nav-dot"></div>Cloud & DevOps</div>
-      <div class="sk-split-nav-item" data-nav="3"><div class="sk-split-nav-dot"></div>Languages</div>
+      <div class="sk-split-nav-item" data-nav="2"><div class="sk-split-nav-dot"></div>Data & AI</div>
+      <div class="sk-split-nav-item" data-nav="3"><div class="sk-split-nav-dot"></div>Cloud & DevOps</div>
+      <div class="sk-split-nav-item" data-nav="4"><div class="sk-split-nav-dot"></div>Languages</div>
     </div>
-
 
     <div class="sk-split-content">
 
       <div class="sk-split-group reveal">
         <div class="sk-split-group-title">Backend & Core</div>
         <div class="sk-level-rows">
-          <div class="sk-level-row"><span class="sk-level-name">Java</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">Primary language · 2+ yrs production use</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">Spring Boot</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">Microservices, REST APIs, full auth flows</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Java</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Primary language across all projects</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Spring Boot</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Microservices, REST APIs, gateway patterns</span></div>
           <div class="sk-level-row"><span class="sk-level-name">Spring Security / JWT</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">RBAC, stateless auth, token refresh</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">PostgreSQL</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Query optimization, indexing, 60% latency cut</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">Microservices</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Eureka, API Gateway, service mesh patterns</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Apache Kafka</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Async pipelines, dead-letter topic handling</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Redis</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Rate limiting, caching, Lua scripting</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">PostgreSQL</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Query optimization, indexing, fetch joins</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Microservices</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Service separation, API gateway patterns</span></div>
           <div class="sk-level-row"><span class="sk-level-name">REST API Design</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">RESTful conventions, versioning, error handling</span></div>
         </div>
       </div>
@@ -514,30 +382,43 @@
         <div class="sk-level-rows">
           <div class="sk-level-row"><span class="sk-level-name">React.js</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Hooks, Context API, code splitting</span></div>
           <div class="sk-level-row"><span class="sk-level-name">JavaScript ES6+</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Async/await, modules, modern patterns</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">HTML5 / CSS3</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">Semantic markup, responsive, animations</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">HTML5 / CSS3</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Semantic markup, responsive, animations</span></div>
           <div class="sk-level-row"><span class="sk-level-name">Tailwind CSS</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Utility-first, custom config, dark mode</span></div>
         </div>
       </div>
 
       <div class="sk-split-group reveal d2">
+        <div class="sk-split-group-title">Data & AI</div>
+        <div class="sk-level-rows">
+          <div class="sk-level-row"><span class="sk-level-name">Qdrant</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Vector search, hybrid retrieval with BM25</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">FastAPI</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Python embedding service, async endpoints</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">tree-sitter</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">AST-aware code chunking</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">LangChain</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">RAG pipelines, GenAI automation</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Celery</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Background task queues</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">OpenAI API</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Embeddings, completions</span></div>
+        </div>
+      </div>
+
+      <div class="sk-split-group reveal d3">
         <div class="sk-split-group-title">Cloud & DevOps</div>
         <div class="sk-level-rows">
           <div class="sk-level-row"><span class="sk-level-name">Docker</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Multi-service compose, CI/CD integration</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">AWS / OCI</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">EC2, RDS, S3, OCI Compute · 4 certs</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">GitHub Actions</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Zero-downtime deploys, automated pipelines</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">Kubernetes</span><span class="sk-level-tag familiar">Learning</span><span class="sk-level-note">Deployments, services, scaling — in progress</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">Linux / Bash</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Shell scripting, server admin, cron jobs</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">AWS</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">EC2, RDS, S3, Lambda, IAM</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">OCI</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Architect + DevOps Professional certified</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">GitHub Actions</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Automated CI/CD pipelines</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Prometheus / Grafana</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Custom metrics, dashboards</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Kubernetes</span><span class="sk-level-tag learning">Learning</span><span class="sk-level-note">Deployments, services — in progress</span></div>
         </div>
       </div>
 
       <div class="sk-split-group reveal d3">
         <div class="sk-split-group-title">Languages</div>
         <div class="sk-level-rows">
-          <div class="sk-level-row"><span class="sk-level-name">Java</span><span class="sk-level-tag expert">Expert</span><span class="sk-level-note">OOP, concurrency, streams, generics</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Java</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">OOP, concurrency, streams, generics</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">Python</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">FastAPI services, GenAI pipelines, scripting</span></div>
           <div class="sk-level-row"><span class="sk-level-name">JavaScript</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">ES2023, async patterns, DOM manipulation</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">Python</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">GenAI pipelines, scripting, LangChain</span></div>
           <div class="sk-level-row"><span class="sk-level-name">SQL</span><span class="sk-level-tag proficient">Proficient</span><span class="sk-level-note">Complex joins, window functions, query plans</span></div>
-          <div class="sk-level-row"><span class="sk-level-name">Bash</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">Automation scripts, CI pipelines, cron</span></div>
+          <div class="sk-level-row"><span class="sk-level-name">C++</span><span class="sk-level-tag familiar">Familiar</span><span class="sk-level-note">DSA, coursework</span></div>
         </div>
       </div>
     </div>
@@ -556,9 +437,9 @@
         <span class="chip">JPA / Hibernate</span>
         <span class="chip">REST API</span>
         <span class="chip">WebSocket</span>
+        <span class="chip">Apache Kafka</span>
+        <span class="chip">Redis</span>
         <span class="chip">Microservices</span>
-        <span class="chip">Eureka</span>
-        <span class="chip">API Gateway</span>
         <span class="chip">Maven</span>
         <span class="chip">JUnit 5</span>
         <span class="chip">Mockito</span>
@@ -587,14 +468,14 @@
       <div class="cat-label">>_ Database</div>
       <div class="cat-chips">
         <span class="chip green">PostgreSQL</span>
-        <span class="chip green">Firebase</span>
+        <span class="chip green">Redis</span>
+        <span class="chip green">Qdrant</span>
+        <span class="chip">Firebase</span>
         <span class="chip">MySQL</span>
-        <span class="chip">Redis</span>
-        <span class="chip">ChromaDB</span>
+        <span class="chip">MongoDB</span>
         <span class="chip">Query Optimization</span>
         <span class="chip">Indexing</span>
         <span class="chip">Schema Design</span>
-        <span class="chip">JDBC</span>
       </div>
       <div class="cat-glyph">DB</div>
     </div>
@@ -606,13 +487,12 @@
         <span class="chip green">OCI</span>
         <span class="chip green">Docker</span>
         <span class="chip green">GitHub Actions</span>
+        <span class="chip">Prometheus</span>
+        <span class="chip">Grafana</span>
         <span class="chip">Kubernetes</span>
         <span class="chip">Vercel</span>
         <span class="chip">Render</span>
-        <span class="chip">Firebase Hosting</span>
-        <span class="chip">Nginx</span>
-        <span class="chip">Linux / Bash</span>
-        <span class="chip">Azure</span>
+        <span class="chip">Terraform</span>
       </div>
       <div class="cat-glyph">CD</div>
     </div>
@@ -623,27 +503,25 @@
         <span class="chip green">Java</span>
         <span class="chip green">JavaScript</span>
         <span class="chip green">Python</span>
+        <span class="chip">C++</span>
         <span class="chip">SQL</span>
         <span class="chip">HTML / CSS</span>
-        <span class="chip">Bash</span>
-        <span class="chip">TypeScript</span>
       </div>
       <div class="cat-glyph">LG</div>
     </div>
 
     <div class="cat-cell reveal d2">
-      <div class="cat-label">>_ Tools & AI</div>
+      <div class="cat-label">>_ Data & AI</div>
       <div class="cat-chips">
-        <span class="chip green">VS Code</span>
-        <span class="chip green">GitHub</span>
-        <span class="chip green">Postman</span>
-        <span class="chip">IntelliJ IDEA</span>
-        <span class="chip">LangChain</span>
+        <span class="chip green">Qdrant</span>
+        <span class="chip green">FastAPI</span>
+        <span class="chip green">LangChain</span>
+        <span class="chip">Celery</span>
+        <span class="chip">tree-sitter</span>
+        <span class="chip">BM25</span>
+        <span class="chip">Cross-Encoder Re-ranking</span>
         <span class="chip">ChromaDB</span>
-        <span class="chip">Groq API</span>
-        <span class="chip">Streamlit</span>
-        <span class="chip">Figma</span>
-        <span class="chip">Notion</span>
+        <span class="chip">OpenAI API</span>
       </div>
       <div class="cat-glyph">AI</div>
     </div>
@@ -672,16 +550,6 @@
 </main>
 
 <script src="js/main.js"></script>
-<!-- <script>
-  /* ── Animate skill bars on scroll ── */
-  const fills = document.querySelectorAll('.sr-fill');
-  const bObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('animate');
-    });
-  }, { threshold: 0.3 });
-  fills.forEach(f => bObs.observe(f));
-</script> -->
 <script>
   const skNavItems = document.querySelectorAll('.sk-split-nav-item');
   const skGroups   = document.querySelectorAll('.sk-split-group');
@@ -707,7 +575,7 @@
   <span class="bb-sep">|</span>
   <div class="bb-status">
     <span class="bb-status-dot"></span>
-    Open · Summer 2026
+    Open to Internships
   </div>
   <span class="bb-right">© 2026 Nakshatra Jain · v8</span>
 </div>

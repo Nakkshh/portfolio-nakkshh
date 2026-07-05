@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Projects — Nakshatra Jain</title>
-<meta name="description" content="Projects by Nakshatra Jain — Nexora, NeuralNest, Cold Email Generator. Full-stack and cloud-native projects built with Spring Boot, React, Docker and AWS."/>
-<meta name="keywords" content="Nakshatra Jain projects, Nexora, NeuralNest, Spring Boot, React, PostgreSQL, Docker, OCI, LangChain"/>
+<meta name="description" content="Projects by Nakshatra Jain — NexGate, VaultAI, Nexora. Backend and cloud-native projects built with Spring Boot, Kafka, Redis, Qdrant and Docker."/>
+<meta name="keywords" content="Nakshatra Jain projects, NexGate, VaultAI, Nexora, Spring Boot, Kafka, Redis, Qdrant, PostgreSQL, Docker, OCI"/>
 <meta name="author" content="Nakshatra Jain"/>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"/>
@@ -14,13 +14,13 @@
 <link rel="manifest" href="assets/site.webmanifest"/>
 <meta name="theme-color" content="#0a0a0a"/>
 <meta property="og:title" content="Projects — Nakshatra Jain"/>
-<meta property="og:description" content="Nexora · NeuralNest · Cold Email Generator. Production-grade full-stack projects by Nakshatra Jain."/>
+<meta property="og:description" content="NexGate · VaultAI · Nexora. Backend systems by Nakshatra Jain — API gateways, semantic search, multi-tenant SaaS."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://portfolio-nakkshh.vercel.app/projects.html"/>
 <meta property="og:image" content="https://portfolio-nakkshh.vercel.app/assets/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Projects — Nakshatra Jain"/>
-<meta name="twitter:description" content="Nexora · NeuralNest · Cold Email Generator. Full-stack projects by Nakshatra Jain."/>
+<meta name="twitter:description" content="NexGate · VaultAI · Nexora. Backend and cloud projects by Nakshatra Jain."/>
 <meta name="twitter:image" content="https://portfolio-nakkshh.vercel.app/assets/og-image.png"/>
 <link rel="stylesheet" href="css/global.css"/>
 <style>
@@ -178,7 +178,7 @@
     <a href="resume.html">Resume</a>
   </div>
   <div class="tn-right">
-    <div class="tn-status"><span class="tn-dot"></span>Open · Summer 2026</div>
+    <div class="tn-status"><span class="tn-dot"></span>Open to Internships</div>
     <button class="tn-cmd-btn" data-cmd-open>⌕ <span class="tn-cmd-key">⌘K</span></button>
     <a href="contact.html" class="tn-hire">Hire Me</a>
   </div>
@@ -220,58 +220,142 @@
     <div style="overflow:hidden;flex:1">
       <div class="ticker-track">
         <span class="ticker-item">Spring Boot</span>
-        <span class="ticker-item">React.js</span>
+        <span class="ticker-item">Apache Kafka</span>
+        <span class="ticker-item">Redis</span>
+        <span class="ticker-item">Qdrant</span>
         <span class="ticker-item">PostgreSQL</span>
         <span class="ticker-item">Docker</span>
+        <span class="ticker-item">FastAPI</span>
         <span class="ticker-item">JWT Auth</span>
-        <span class="ticker-item">Microservices</span>
         <span class="ticker-item">GitHub Actions</span>
-        <span class="ticker-item">OCI</span>
-        <span class="ticker-item">LangChain</span>
-        <span class="ticker-item">Kubernetes</span>
+        <span class="ticker-item">Prometheus</span>
         <span class="ticker-item">Spring Boot</span>
-        <span class="ticker-item">React.js</span>
+        <span class="ticker-item">Apache Kafka</span>
+        <span class="ticker-item">Redis</span>
+        <span class="ticker-item">Qdrant</span>
         <span class="ticker-item">PostgreSQL</span>
         <span class="ticker-item">Docker</span>
+        <span class="ticker-item">FastAPI</span>
         <span class="ticker-item">JWT Auth</span>
-        <span class="ticker-item">Microservices</span>
         <span class="ticker-item">GitHub Actions</span>
-        <span class="ticker-item">OCI</span>
-        <span class="ticker-item">LangChain</span>
-        <span class="ticker-item">Kubernetes</span>
+        <span class="ticker-item">Prometheus</span>
       </div>
     </div>
   </div>
 
   <div class="proj-list">
 
-    <!-- PROJECT 01 — Nexora -->
+    <!-- PROJECT 01 — NexGate -->
     <div class="prow reveal d1">
       <div class="prow-num">01</div>
       <div class="prow-body">
         <div class="prow-meta">
           <span class="badge live"><span class="badge-dot"></span>Live</span>
-          <span class="prow-type">Full-Stack · Microservices</span>
-          <span class="prow-period">Dec 2025 – Present</span>
+          <span class="prow-type">Backend · API Gateway</span>
+          <span class="prow-period">Apr 2026 – May 2026</span>
+        </div>
+        <div class="prow-name">NexGate</div>
+        <div class="prow-sub">Multi-Tenant API Gateway with Real-Time Traffic Analytics · Spring Boot · Kafka · Redis · PostgreSQL · WebSockets · Prometheus/Grafana</div>
+        <ul class="prow-bullets">
+          <li>Built a multi-tenant API gateway in Spring Boot handling request proxying, API key auth, and per-tenant rate limiting via a <strong>Redis sliding-window algorithm using atomic Lua scripts</strong>. Load-tested locally with k6 (90 VUs): <strong>980 req/min</strong>, <strong>62ms</strong> median latency, 0% errors across 3 simulated tenants.</li>
+          <li>Moved request/response logging off the hot path into an async <strong>Kafka</strong> pipeline writing to PostgreSQL, so gateway latency stays unaffected by logging volume; added dead-letter topic handling with 3-retry backoff for failed writes.</li>
+          <li>Built a live traffic dashboard over <strong>WebSockets</strong> showing per-tenant request rate, latency, and error counts, backed by a <strong>Prometheus + Grafana</strong> stack with custom Micrometer metrics for gateway throughput and p99 latency.</li>
+        </ul>
+        <div class="prow-chips">
+          <span class="chip green">Spring Boot</span>
+          <span class="chip green">Apache Kafka</span>
+          <span class="chip green">Redis</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">WebSockets</span>
+          <span class="chip">Prometheus</span>
+          <span class="chip">Grafana</span>
+          <span class="chip">Docker</span>
+          <span class="chip">GitHub Actions</span>
+        </div>
+      </div>
+      <div class="prow-side">
+        <div class="prow-links">
+          <a href="https://nexgate-prod.vercel.app/" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3H3v10h10V9M9 3h4v4M13 3L7 9"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/Nakkshh/nexgate" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="prow-glyph">N</div>
+      </div>
+    </div>
+
+    <!-- PROJECT 02 — VaultAI -->
+    <div class="prow reveal">
+      <div class="prow-num">02</div>
+      <div class="prow-body">
+        <div class="prow-meta">
+          <span class="badge live"><span class="badge-dot"></span>Live</span>
+          <span class="prow-type">Backend · AI/Search</span>
+          <span class="prow-period">Feb 2026 – Mar 2026</span>
+        </div>
+        <div class="prow-name">VaultAI</div>
+        <div class="prow-sub">Semantic Code & Document Search Platform · Spring Boot · FastAPI · Qdrant · Redis · PostgreSQL</div>
+        <ul class="prow-bullets">
+          <li>Split the system into a <strong>Spring Boot</strong> gateway and a <strong>FastAPI</strong> embedding service; ingested repos via GitHub OAuth and chunked code with <strong>tree-sitter</strong> at function/class boundaries instead of naive line splitting.</li>
+          <li>Combined <strong>BM25</strong> keyword search with <strong>Qdrant</strong> vector search and a cross-encoder re-ranking step, so results aren't purely keyword- or embedding-driven; cached repeated queries in Redis to cut redundant embedding calls.</li>
+          <li>Secured the API with JWT auth and scoped API keys, added Redis-based rate limiting, and wired up Prometheus/Grafana for query latency and cache-hit visibility.</li>
+        </ul>
+        <div class="prow-chips">
+          <span class="chip green">Spring Boot</span>
+          <span class="chip green">FastAPI</span>
+          <span class="chip green">Qdrant</span>
+          <span class="chip">Celery</span>
+          <span class="chip">Redis</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Docker Compose</span>
+          <span class="chip">OpenAI</span>
+        </div>
+      </div>
+      <div class="prow-side">
+        <div class="prow-links">
+          <a href="https://vaultai-prod.vercel.app/" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3H3v10h10V9M9 3h4v4M13 3L7 9"/></svg>
+            Live Demo
+          </a>
+          <a href="https://github.com/Nakkshh/vaultai" target="_blank" rel="noopener noreferrer" class="prow-link">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="prow-glyph">V</div>
+      </div>
+    </div>
+
+    <!-- PROJECT 03 — Nexora -->
+    <div class="prow reveal">
+      <div class="prow-num">03</div>
+      <div class="prow-body">
+        <div class="prow-meta">
+          <span class="badge live"><span class="badge-dot"></span>Live</span>
+          <span class="prow-type">Full-Stack · Multi-Tenant SaaS</span>
+          <span class="prow-period">Dec 2025 – Jan 2026</span>
         </div>
         <div class="prow-name">Nexora</div>
-        <div class="prow-sub">Project Management Platform · Spring Boot · React · PostgreSQL · Firebase Auth · Docker · Render</div>
+        <div class="prow-sub">Multi-Tenant Project Management SaaS · Spring Boot · React · NeonDB (PostgreSQL) · Firebase Auth · Docker</div>
         <ul class="prow-bullets">
-          <li>Built a full-stack project management platform with <strong>Spring Boot</strong> backend and <strong>React + Vite</strong> frontend; structured across 5 normalized entities (Users, Projects, Tasks, ProjectMembers) with layered repository-service-controller architecture.</li>
-          <li>Modeled relational data across <strong>5 entities</strong> using <strong>JPA/Hibernate ORM</strong> on PostgreSQL; debugged and fixed bidirectional <strong>@OneToMany</strong> serialization loops and lazy-fetch N+1 issues in production.</li>
-          <li>Implemented <strong>Firebase Auth + Spring Security JWT</strong> for stateless authentication; enforced <strong>RBAC</strong> across 3 permission tiers (OWNER / ADMIN / MEMBER) securing 15+ REST API endpoints.</li>
-          <li>Dockerized frontend and backend independently; deployed to <strong>Render</strong> with GitHub push-triggered auto-deploy achieving <strong>zero manual deploys</strong> across all iterations.</li>
+          <li>Wrote tenant-scoped JPA queries to enforce data isolation between organizations; confirmed <strong>zero cross-tenant leakage</strong> across 5 test organizations with JUnit 5 integration tests.</li>
+          <li>Traced a slow endpoint to Hibernate <strong>N+1</strong> queries from <code>@OneToMany</code> serialization; fixed it with DTO projections and fetch-join optimization, cutting DB round-trips <strong>70%</strong> and local benchmark response time from <strong>450ms to 130ms</strong>.</li>
+          <li>Secured 15+ REST APIs with Firebase Auth, Spring Security JWT, and 3-tier RBAC (OWNER/ADMIN/MEMBER); documented with Swagger/OpenAPI and shipped through a GitHub Actions CI/CD pipeline.</li>
+          <li>Dockerized frontend and backend independently; deployed to Render with GitHub push-triggered auto-deploy.</li>
         </ul>
         <div class="prow-chips">
           <span class="chip green">Spring Boot</span>
           <span class="chip green">React.js</span>
           <span class="chip green">PostgreSQL</span>
+          <span class="chip">Firebase Auth</span>
           <span class="chip">Docker</span>
-          <span class="chip">Microservices</span>
           <span class="chip">JWT</span>
           <span class="chip">GitHub Actions</span>
           <span class="chip">Render</span>
-          <span class="chip">Maven</span>
         </div>
       </div>
       <div class="prow-side">
@@ -287,16 +371,19 @@
         </div>
         <div class="prow-glyph">N</div>
       </div>
-   </div>
+    </div>
 
-    <!-- PROJECT 02 — NeuralNest -->
+    <!-- ARCHIVE -->
+    <div class="archive-label">archived · older experiments</div>
+
+    <!-- PROJECT 04 — NeuralNest -->
     <div class="prow reveal">
-      <div class="prow-num">02</div>
+      <div class="prow-num">04</div>
       <div class="prow-body">
         <div class="prow-meta">
-          <span class="badge live"><span class="badge-dot"></span>Live</span>
+          <span class="badge arch"><span class="badge-dot"></span>Archived</span>
           <span class="prow-type">Full-Stack · AI</span>
-          <span class="prow-period">Nov 2025 – Jan 2026</span>
+          <span class="prow-period">Sep 2025 –  Nov 2025</span>
         </div>
         <div class="prow-name">NeuralNest</div>
         <div class="prow-sub">Cognitive Load Monitoring Platform · React · Spring Boot · PostgreSQL · Docker · OCI</div>
@@ -306,17 +393,17 @@
           <li>Automated full deployment pipeline with <strong>Docker + GitHub Actions CI/CD</strong>; maintained <strong>99.5% uptime</strong> on OCI cloud infrastructure with zero-downtime rolling deploys.</li>
           <li>Achieved <strong>80% unit test coverage</strong> with JUnit 5 and Mockito; implemented React code splitting and HTTP caching for <strong>40% improvement in page load time</strong>.</li>
         </ul>
-        <div class="prow-metrics">
+        <!-- <div class="prow-metrics">
           <span class="pm"><strong>&lt;200ms</strong> API latency</span>
           <span class="pm"><strong>60%</strong> query optimization</span>
           <span class="pm"><strong>99.5%</strong> uptime</span>
           <span class="pm"><strong>80%</strong> test coverage</span>
           <span class="pm"><strong>40%</strong> faster page load</span>
-        </div>
+        </div> -->
         <div class="prow-chips">
-          <span class="chip green">React.js</span>
-          <span class="chip green">Spring Boot</span>
-          <span class="chip green">PostgreSQL</span>
+          <span class="chip" style="border-color:rgba(139,92,246,.3);color:#a78bfa;background:rgba(139,92,246,.06)">React.js</span>
+          <span class="chip" style="border-color:rgba(139,92,246,.3);color:#a78bfa;background:rgba(139,92,246,.06)">Spring Boot</span>
+          <span class="chip" style="border-color:rgba(139,92,246,.3);color:#a78bfa;background:rgba(139,92,246,.06)">PostgreSQL</span>
           <span class="chip">Docker</span>
           <span class="chip">JWT</span>
           <span class="chip">Spring Security</span>
@@ -343,12 +430,9 @@
       </div>
     </div>
 
-    <!-- ARCHIVE -->
-    <div class="archive-label">archived · older experiments</div>
-
-    <!-- PROJECT 03 — Cold Email Generator -->
+    <!-- PROJECT 05 — Cold Email Generator -->
     <div class="prow reveal">
-      <div class="prow-num">03</div>
+      <div class="prow-num">05</div>
       <div class="prow-body">
         <div class="prow-meta">
           <span class="badge arch"><span class="badge-dot"></span>Archived</span>
@@ -412,7 +496,7 @@
   <span class="bb-sep">|</span>
   <div class="bb-status">
     <span class="bb-status-dot"></span>
-    Open · Summer 2026
+    Open to Internships
   </div>
   <span class="bb-right">© 2026 Nakshatra Jain · v8</span>
 </div>
