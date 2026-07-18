@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { delay: 960,  pct: 72,  status: 'OK',   msg: 'Connecting database — PostgreSQL · Firebase' },
     { delay: 1120, pct: 86,  status: 'OK',   msg: 'Running CI/CD — GitHub Actions pipeline' },
     { delay: 1280, pct: 94,  status: 'OK',   msg: 'Loading projects — Nexora · NeuralNest' },
-    { delay: 1420, pct: 100, status: 'READY',msg: 'Status — Open to Internships Internships' },
+    { delay: 1420, pct: 100, status: 'READY',msg: 'Status — Open to Internships' },
   ];
 
     steps.forEach((s, i) => {
